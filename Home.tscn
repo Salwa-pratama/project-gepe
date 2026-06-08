@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://rg2suep1saas"]
+
+[node name="Node2D" type="Node2D" unique_id=1945146073]
+
+[node name="bg" type="TileMapLayer" parent="." unique_id=720424350]
