@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://d2m53fxqaytrd"]
+
+[ext_resource type="Texture2D" uid="uid://cyqhoo0tbkfnu" path="res://asset/character/doerong2.png" id="1_34oqc"]
+[ext_resource type="Texture2D" uid="uid://e4jnv3pr6tm0" path="res://asset/character/dorong1.png" id="2_o5gar"]
+[ext_resource type="Texture2D" uid="uid://b6jxjs0qarsyx" path="res://asset/character/dorong3.png" id="3_ndu7g"]
+[ext_resource type="Texture2D" uid="uid://gfo0w4lsdnuq" path="res://asset/character/idle.png" id="4_74f7h"]
+[ext_resource type="Texture2D" uid="uid://dxy8ac2xmimx0" path="res://asset/character/jalan1.png" id="5_cfrs6"]
+[ext_resource type="Texture2D" uid="uid://dq7c6jewm2wm5" path="res://asset/character/jalan2.png" id="6_x7jrk"]
+[ext_resource type="Texture2D" uid="uid://bfb27vmku16l8" path="res://asset/character/jalan3.png" id="7_lbgpb"]
+[ext_resource type="Texture2D" uid="uid://cr8q6iprfir7u" path="res://asset/character/lompat1.png" id="8_5xjyk"]
+[ext_resource type="Texture2D" uid="uid://bhgcch31vkdx5" path="res://asset/character/Lompat2.png" id="9_3m3tx"]
+[ext_resource type="Texture2D" uid="uid://clilv216jvsla" path="res://asset/character/tarik1.png" id="10_376lq"]
+[ext_resource type="Texture2D" uid="uid://da3bfg8phqu5a" path="res://asset/character/tarik2.png" id="11_b8cv4"]
+[ext_resource type="Texture2D" uid="uid://cpr856860c74c" path="res://asset/character/tarik3.png" id="12_tnf04"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3s2d"]
+atlas = ExtResource("4_74f7h")
+region = Rect2(0, 159, 125, 159)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iq1q"]
+atlas = ExtResource("4_74f7h")
+region = Rect2(125, 159, 125, 159)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyc4o"]
+atlas = ExtResource("4_74f7h")
+region = Rect2(250, 159, 125, 159)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhphn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_34oqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o5gar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ndu7g")
+}],
+"loop": true,
+"name": &"dorong",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3s2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iq1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyc4o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cfrs6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x7jrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lbgpb")
+}],
+"loop": true,
+"name": &"jalan",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_5xjyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3m3tx")
+}],
+"loop": true,
+"name": &"lompat",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_376lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_b8cv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_tnf04")
+}],
+"loop": true,
+"name": &"narik",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Area2D" unique_id=1438202888]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2123752292]
+sprite_frames = SubResource("SpriteFrames_mhphn")
+animation = &"narik"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.091911286

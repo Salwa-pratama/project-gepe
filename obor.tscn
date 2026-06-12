@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://duxojec6gfsdy"]
+
+[ext_resource type="Texture2D" uid="uid://biwnwvpf15gv5" path="res://asset/display/api1.png" id="1_xaa6o"]
+[ext_resource type="Texture2D" uid="uid://givwxu0y8o4n" path="res://asset/display/api2.png" id="2_ocs7e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_otets"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xaa6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ocs7e")
+}],
+"loop": true,
+"name": &"berkobar",
+"speed": 5.0
+}]
+
+[node name="obor" type="Node2D" unique_id=1809431092]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1234290430]
+position = Vector2(1.2499967, 10.499996)
+scale = Vector2(0.66796875, 0.7734375)
+sprite_frames = SubResource("SpriteFrames_otets")
+animation = &"berkobar"
+autoplay = "berkobar"
+frame_progress = 0.07730726

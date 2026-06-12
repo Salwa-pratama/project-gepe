@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dv0itunwmb7w4"]
+
+[ext_resource type="Texture2D" uid="uid://dwjr7im85tcfs" path="res://asset/display/pintu_penjara2.png" id="1_ynbtk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lpra"]
+atlas = ExtResource("1_ynbtk")
+region = Rect2(26, 0, 183, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yphwy"]
+atlas = ExtResource("1_ynbtk")
+region = Rect2(238, 0, 183, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40krd"]
+atlas = ExtResource("1_ynbtk")
+region = Rect2(450, 0, 183, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni132"]
+atlas = ExtResource("1_ynbtk")
+region = Rect2(26, 197, 183, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eivdf"]
+atlas = ExtResource("1_ynbtk")
+region = Rect2(238, 197, 183, 197)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0mthh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lpra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yphwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40krd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni132")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eivdf")
+}],
+"loop": true,
+"name": &"mbuka",
+"speed": 2.0
+}]
+
+[node name="Node2D" type="Area2D" unique_id=750388151]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1441102390]
+position = Vector2(2.8011613, 10.297779)
+scale = Vector2(1.412009, 1.4589058)
+sprite_frames = SubResource("SpriteFrames_0mthh")
+animation = &"mbuka"
+frame = 2
+frame_progress = 0.3419744

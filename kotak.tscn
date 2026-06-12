@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bo65airavkcw1"]
+
+[ext_resource type="Texture2D" uid="uid://cobs01g7e64xt" path="res://asset/map/64x64.png" id="1_5dryd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wegqy"]
+atlas = ExtResource("1_5dryd")
+region = Rect2(2542, 938, 127, 117)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxhco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wegqy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="kotak" type="Area2D" unique_id=888928277]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=904388849]
+position = Vector2(-1.083389, -0.37499714)
+scale = Vector2(0.7572187, 0.77564096)
+sprite_frames = SubResource("SpriteFrames_lxhco")
