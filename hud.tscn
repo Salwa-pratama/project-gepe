@@ -1,10 +1,12 @@
-[gd_scene format=3 uid="uid://dtico6i3okntk"]
+[gd_scene load_steps=5 format=3 uid="uid://dtico6i3okntk"]
 
+[ext_resource type="Script" path="res://hud.gd" id="1_hud_gd"]
 [ext_resource type="Texture2D" uid="uid://d0rb5wwxpyoic" path="res://asset/display/hud/start.png" id="1_8sq4i"]
 [ext_resource type="Texture2D" uid="uid://b850llr5vuxby" path="res://asset/display/hud/settings.png" id="2_640wx"]
 [ext_resource type="Texture2D" uid="uid://t55lxceok2dt" path="res://asset/display/hud/exit.png" id="3_a2258"]
 
 [node name="Node2D" type="Area2D" unique_id=1937584667]
+script = ExtResource("1_hud_gd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1119962431]
 
