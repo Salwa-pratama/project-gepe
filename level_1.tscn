@@ -866,6 +866,15 @@ sources/0 = SubResource("TileSetAtlasSource_hbghi")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hph3"]
 size = Vector2(648.5, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upper_left_wall"]
+size = Vector2(30, 380)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lower_left_wall"]
+size = Vector2(20, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_right_wall"]
+size = Vector2(20, 700)
+
 [node name="level1" type="Area2D" unique_id=562346807]
 position = Vector2(-1, 0)
 script = ExtResource("1_hbghi")
@@ -907,3 +916,15 @@ shape = SubResource("RectangleShape2D_5hph3")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1293575014]
 position = Vector2(860, 656)
 shape = SubResource("RectangleShape2D_5hph3")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1293575015]
+position = Vector2(95, 190)
+shape = SubResource("RectangleShape2D_upper_left_wall")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1293575016]
+position = Vector2(0, 500)
+shape = SubResource("RectangleShape2D_lower_left_wall")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1293575017]
+position = Vector2(1150, 324)
+shape = SubResource("RectangleShape2D_right_wall")

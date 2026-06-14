@@ -40,7 +40,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eivdf")
 }],
-"loop": true,
+"loop": false,
 "name": &"mbuka",
 "speed": 2.0
 }]
@@ -52,5 +52,6 @@ position = Vector2(2.8011613, 10.297779)
 scale = Vector2(1.412009, 1.4589058)
 sprite_frames = SubResource("SpriteFrames_0mthh")
 animation = &"mbuka"
-frame = 2
-frame_progress = 0.3419744
+autoplay = "mbuka"
+frame = 4
+frame_progress = 1.0

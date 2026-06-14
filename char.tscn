@@ -1,5 +1,6 @@
-[gd_scene format=3 uid="uid://d2m53fxqaytrd"]
+[gd_scene load_steps=16 format=3 uid="uid://d2m53fxqaytrd"]
 
+[ext_resource type="Script" path="res://char.gd" id="13_char_gd"]
 [ext_resource type="Texture2D" uid="uid://cyqhoo0tbkfnu" path="res://asset/character/doerong2.png" id="1_34oqc"]
 [ext_resource type="Texture2D" uid="uid://e4jnv3pr6tm0" path="res://asset/character/dorong1.png" id="2_o5gar"]
 [ext_resource type="Texture2D" uid="uid://b6jxjs0qarsyx" path="res://asset/character/dorong3.png" id="3_ndu7g"]
@@ -95,7 +96,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Area2D" unique_id=1438202888]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_74f7h"]
+radius = 35.0
+height = 120.0
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1438202888]
+script = ExtResource("13_char_gd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2123752292]
 sprite_frames = SubResource("SpriteFrames_mhphn")
@@ -103,3 +109,7 @@ animation = &"narik"
 autoplay = "idle"
 frame = 1
 frame_progress = 0.091911286
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=3123752292]
+shape = SubResource("CapsuleShape2D_74f7h")
+position = Vector2(0, 15)
