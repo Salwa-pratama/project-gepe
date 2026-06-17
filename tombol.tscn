@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bn10arng16ucs"]
+
+[ext_resource type="Texture2D" uid="uid://ciocqsh3lx7ml" path="res://asset/display/t2.png" id="1_fyqv3"]
+[ext_resource type="Texture2D" uid="uid://jj2g6jb4al8n" path="res://asset/display/t1.png" id="2_xmyun"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nqm5w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fyqv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xmyun")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xmyun")
+}],
+"loop": true,
+"name": &"none",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xmyun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_fyqv3")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyqv3"]
+size = Vector2(105, 19)
+
+[node name="tombol" type="Area2D" unique_id=241818438]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=910250317]
+position = Vector2(1, -2.3841858e-07)
+scale = Vector2(0.90625, 0.9375)
+sprite_frames = SubResource("SpriteFrames_nqm5w")
+animation = &"none"
+autoplay = "none"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=524982566]
+position = Vector2(1.5, 19.5)
+shape = SubResource("RectangleShape2D_fyqv3")

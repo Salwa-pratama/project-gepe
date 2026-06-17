@@ -1,26 +1,16 @@
 [gd_scene format=3 uid="uid://dv0itunwmb7w4"]
 
 [ext_resource type="Texture2D" uid="uid://dwjr7im85tcfs" path="res://asset/display/pintu_penjara2.png" id="1_ynbtk"]
+[ext_resource type="Texture2D" uid="uid://dcy661btuunr8" path="res://asset/display/p1.png" id="2_0mthh"]
+[ext_resource type="Texture2D" uid="uid://bdnj4kn2do6em" path="res://asset/display/p2.png" id="3_jv55j"]
+[ext_resource type="Texture2D" uid="uid://c2b8asnn6tdcm" path="res://asset/display/p3.png" id="4_uscwk"]
+[ext_resource type="Texture2D" uid="uid://dogic65bksmhb" path="res://asset/display/p4.png" id="5_rxctb"]
+[ext_resource type="Texture2D" uid="uid://27veibp7fc3l" path="res://asset/display/p5.png" id="6_e1pqq"]
+[ext_resource type="Texture2D" uid="uid://d0yndxrfylkpn" path="res://asset/display/p6.png" id="7_tcatc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6lpra"]
 atlas = ExtResource("1_ynbtk")
 region = Rect2(26, 0, 183, 197)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yphwy"]
-atlas = ExtResource("1_ynbtk")
-region = Rect2(238, 0, 183, 197)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_40krd"]
-atlas = ExtResource("1_ynbtk")
-region = Rect2(450, 0, 183, 197)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ni132"]
-atlas = ExtResource("1_ynbtk")
-region = Rect2(26, 197, 183, 197)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eivdf"]
-atlas = ExtResource("1_ynbtk")
-region = Rect2(238, 197, 183, 197)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mthh"]
 animations = [{
@@ -34,19 +24,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6lpra")
+"texture": ExtResource("2_0mthh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yphwy")
+"texture": ExtResource("3_jv55j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_40krd")
+"texture": ExtResource("4_uscwk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ni132")
+"texture": ExtResource("5_rxctb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eivdf")
+"texture": ExtResource("6_e1pqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tcatc")
 }],
 "loop": false,
 "name": &"mbuka",
@@ -54,19 +47,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ni132")
+"texture": ExtResource("7_tcatc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eivdf")
+"texture": ExtResource("6_e1pqq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_40krd")
+"texture": ExtResource("5_rxctb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yphwy")
+"texture": ExtResource("4_uscwk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6lpra")
+"texture": ExtResource("3_jv55j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0mthh")
 }],
 "loop": true,
 "name": &"nutup",
@@ -76,8 +72,8 @@ animations = [{
 [node name="Node2D" type="Area2D" unique_id=750388151]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1441102390]
-position = Vector2(2.8011613, 10.297779)
-scale = Vector2(1.412009, 1.4589058)
+position = Vector2(2.999999, 0)
+scale = Vector2(1.339341, 1.3799548)
 sprite_frames = SubResource("SpriteFrames_0mthh")
 animation = &"idle_nutup"
 autoplay = "idle_nutup"
