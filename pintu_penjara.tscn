@@ -27,6 +27,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6lpra")
+}],
+"loop": true,
+"name": &"idle_nutup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lpra")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yphwy")
@@ -43,6 +51,26 @@ animations = [{
 "loop": false,
 "name": &"mbuka",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni132")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eivdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40krd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yphwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lpra")
+}],
+"loop": true,
+"name": &"nutup",
+"speed": 2.0
 }]
 
 [node name="Node2D" type="Area2D" unique_id=750388151]
@@ -51,7 +79,5 @@ animations = [{
 position = Vector2(2.8011613, 10.297779)
 scale = Vector2(1.412009, 1.4589058)
 sprite_frames = SubResource("SpriteFrames_0mthh")
-animation = &"mbuka"
-autoplay = "mbuka"
-frame = 4
-frame_progress = 1.0
+animation = &"idle_nutup"
+autoplay = "idle_nutup"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqg08uuai5cc1"
+path="res://.godot/imported/becksound game.mp3-166f50d60d51fcd8f78dfc0fb7d6e470.mp3str"
+
+[deps]
+
+source_file="res://asset/sound/becksound game.mp3"
+dest_files=["res://.godot/imported/becksound game.mp3-166f50d60d51fcd8f78dfc0fb7d6e470.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

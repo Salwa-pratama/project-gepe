@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2m53fxqaytrd"]
+[gd_scene format=3 uid="uid://d2m53fxqaytrd"]
 
-[ext_resource type="Script" path="res://char.gd" id="13_char_gd"]
 [ext_resource type="Texture2D" uid="uid://cyqhoo0tbkfnu" path="res://asset/character/doerong2.png" id="1_34oqc"]
 [ext_resource type="Texture2D" uid="uid://e4jnv3pr6tm0" path="res://asset/character/dorong1.png" id="2_o5gar"]
 [ext_resource type="Texture2D" uid="uid://b6jxjs0qarsyx" path="res://asset/character/dorong3.png" id="3_ndu7g"]
-[ext_resource type="Texture2D" uid="uid://gfo0w4lsdnuq" path="res://asset/character/idle.png" id="4_74f7h"]
 [ext_resource type="Texture2D" uid="uid://dxy8ac2xmimx0" path="res://asset/character/jalan1.png" id="5_cfrs6"]
+[ext_resource type="Texture2D" uid="uid://b3eytrofc7i8j" path="res://asset/character/idle1.png" id="5_ndu7g"]
+[ext_resource type="Texture2D" uid="uid://dav0705c3wefh" path="res://asset/character/idle2.png" id="6_74f7h"]
 [ext_resource type="Texture2D" uid="uid://dq7c6jewm2wm5" path="res://asset/character/jalan2.png" id="6_x7jrk"]
 [ext_resource type="Texture2D" uid="uid://bfb27vmku16l8" path="res://asset/character/jalan3.png" id="7_lbgpb"]
 [ext_resource type="Texture2D" uid="uid://cr8q6iprfir7u" path="res://asset/character/lompat1.png" id="8_5xjyk"]
@@ -13,18 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://clilv216jvsla" path="res://asset/character/tarik1.png" id="10_376lq"]
 [ext_resource type="Texture2D" uid="uid://da3bfg8phqu5a" path="res://asset/character/tarik2.png" id="11_b8cv4"]
 [ext_resource type="Texture2D" uid="uid://cpr856860c74c" path="res://asset/character/tarik3.png" id="12_tnf04"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f3s2d"]
-atlas = ExtResource("4_74f7h")
-region = Rect2(0, 159, 125, 159)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3iq1q"]
-atlas = ExtResource("4_74f7h")
-region = Rect2(125, 159, 125, 159)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lyc4o"]
-atlas = ExtResource("4_74f7h")
-region = Rect2(250, 159, 125, 159)
+[ext_resource type="Script" path="res://char.gd" id="13_char_gd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhphn"]
 animations = [{
@@ -44,13 +33,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f3s2d")
+"texture": ExtResource("5_ndu7g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3iq1q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lyc4o")
+"texture": ExtResource("6_74f7h")
 }],
 "loop": true,
 "name": &"idle",
@@ -96,20 +82,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_74f7h"]
-radius = 35.0
-height = 120.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndu7g"]
+size = Vector2(58, 117)
 
 [node name="Node2D" type="CharacterBody2D" unique_id=1438202888]
 script = ExtResource("13_char_gd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2123752292]
 sprite_frames = SubResource("SpriteFrames_mhphn")
-animation = &"narik"
+animation = &"idle"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.091911286
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=3123752292]
-shape = SubResource("CapsuleShape2D_74f7h")
-position = Vector2(0, 15)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=-1171215004]
+position = Vector2(5, -2.5)
+shape = SubResource("RectangleShape2D_ndu7g")
