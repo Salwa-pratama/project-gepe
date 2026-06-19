@@ -58,7 +58,21 @@ func _physics_process(delta: float) -> void:
 	else:
 		# --- LOGIKA GERAKAN NORMAL (TANPA SHIFT) ---
 		if direction != 0:
-			velocity.x = direction * SPEED
+			# Cek apakah karakter sedang mendorong kotak secara fisik (bertabrakan horizontal)
+			var is_pushing_box := false
+			if is_on_floor():
+				for i in get_slide_collision_count():
+					var collision = get_slide_collision(i)
+					var collider = collision.get_collider()
+					if collider != null and collider.is_in_group("box") and abs(collision.get_normal().x) > 0.8:
+						is_pushing_box = true
+						break
+			
+			if is_pushing_box:
+				velocity.x = direction * PUSH_PULL_SPEED
+			else:
+				velocity.x = direction * SPEED
+
 			# Balikkan arah sprite (flip) sesuai arah gerak
 			if direction < 0:
 				animated_sprite.flip_h = true
@@ -81,23 +95,40 @@ func _physics_process(delta: float) -> void:
 			if collider != null and collider.is_in_group("box"):
 				# Cek jika mendorong secara horizontal dan karakter berada di lantai
 				if abs(collision.get_normal().x) > 0.8 and is_on_floor():
-					# Dorong kotak dengan kecepatan tereduksi
-					collider.velocity.x = velocity.x * 0.5
+					# Dorong kotak dengan kecepatan yang sama dengan karakter agar mulus
+					collider.velocity.x = velocity.x
 					# Putar animasi dorong
 					if animated_sprite.sprite_frames.has_animation("dorong") and is_on_floor():
 						animated_sprite.play("dorong")
 
-# Fungsi pembantu untuk mencari kotak dalam jangkauan terdekat
+# Fungsi pembantu untuk mencari kotak terdekat, memprioritaskan arah hadap karakter
 func _get_nearby_box() -> CharacterBody2D:
 	var boxes = get_tree().get_nodes_in_group("box")
+	var closest_box: CharacterBody2D = null
+	var min_distance := 999999.0
+	
+	# Arah hadap karakter: -1 jika menghadap kiri (flip_h), 1 jika kanan
+	var facing_dir = -1.0 if animated_sprite.flip_h else 1.0
+	
 	for box in boxes:
 		if box is CharacterBody2D:
-			var diff_x = abs(global_position.x - box.global_position.x)
+			var diff_x = box.global_position.x - global_position.x
 			var diff_y = abs(global_position.y - box.global_position.y)
-			# Toleransi jarak horizontal 90.0 piksel dan vertikal 50.0 piksel
-			if diff_x < 90.0 and diff_y < 50.0:
-				return box
-	return null
+			
+			# Toleransi vertikal sedikit ditingkatkan menjadi 75.0 agar bisa mendeteksi dari ketinggian berbeda
+			if diff_y < 75.0:
+				var abs_diff_x = abs(diff_x)
+				if abs_diff_x < 95.0:
+					# Berikan diskon jarak jika kotak berada di depan arah hadap karakter
+					var is_in_front = (diff_x > 0 and facing_dir > 0) or (diff_x < 0 and facing_dir < 0)
+					var distance = abs_diff_x
+					if is_in_front:
+						distance -= 30.0 # Prioritaskan kotak di depan
+						
+					if distance < min_distance:
+						min_distance = distance
+						closest_box = box
+	return closest_box
 
 func _update_animation(direction: float) -> void:
 	if not is_on_floor():
