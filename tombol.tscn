@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ciocqsh3lx7ml" path="res://asset/display/t2.png" id="1_fyqv3"]
 [ext_resource type="Texture2D" uid="uid://jj2g6jb4al8n" path="res://asset/display/t1.png" id="2_xmyun"]
+[ext_resource type="Script" path="res://tombol.gd" id="1_tombol_gd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nqm5w"]
 animations = [{
@@ -40,6 +41,7 @@ animations = [{
 size = Vector2(105, 19)
 
 [node name="tombol" type="Area2D" unique_id=241818438]
+script = ExtResource("1_tombol_gd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=910250317]
 position = Vector2(1, -2.3841858e-07)
