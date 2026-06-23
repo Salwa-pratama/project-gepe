@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://duxojec6gfsdy" path="res://obor.tscn" id="3_an40m"]
 [ext_resource type="PackedScene" uid="uid://lktwbr3isjvi" path="res://knight.tscn" id="4_mu84n"]
 [ext_resource type="PackedScene" uid="uid://bn10arng16ucs" path="res://tombol.tscn" id="5_an40m"]
+[ext_resource type="PackedScene" uid="uid://d2m53fxqaytrd" path="res://char.tscn" id="6_mu84n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o2ccw"]
 texture = ExtResource("1_lyoih")
@@ -862,8 +863,17 @@ texture_region_size = Vector2i(72, 67)
 tile_size = Vector2i(72, 67)
 sources/0 = SubResource("TileSetAtlasSource_o2ccw")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an40m"]
+size = Vector2(1156, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x87a"]
+size = Vector2(215, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mu84n"]
+size = Vector2(271, 32)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmsap"]
-size = Vector2(1154.875, 29.5)
+size = Vector2(141.5, 29)
 
 [node name="Area2D" type="Area2D" unique_id=890835807]
 
@@ -883,14 +893,6 @@ position = Vector2(598, 299)
 [node name="kotak4" parent="." unique_id=871225399 instance=ExtResource("2_5lcx6")]
 position = Vector2(338, 111)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1344836350]
-position = Vector2(577.5625, 584.25)
-shape = SubResource("RectangleShape2D_bmsap")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1014212716]
-position = Vector2(1440, 314)
-shape = SubResource("RectangleShape2D_bmsap")
-
 [node name="obor" parent="." unique_id=1809431092 instance=ExtResource("3_an40m")]
 position = Vector2(974, 142)
 
@@ -899,3 +901,24 @@ position = Vector2(86, 46)
 
 [node name="tombol" parent="." unique_id=241818438 instance=ExtResource("5_an40m")]
 position = Vector2(485, 322)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=185273897]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=641046194]
+position = Vector2(583, 584)
+shape = SubResource("RectangleShape2D_an40m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=30914702]
+position = Vector2(539.5, 382)
+shape = SubResource("RectangleShape2D_8x87a")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=766023420]
+position = Vector2(1009.5, 319)
+shape = SubResource("RectangleShape2D_mu84n")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1135570484]
+position = Vector2(361.25, 177.5)
+shape = SubResource("RectangleShape2D_bmsap")
+
+[node name="Node2D" parent="." unique_id=1438202888 instance=ExtResource("6_mu84n")]
+position = Vector2(1049, 201)

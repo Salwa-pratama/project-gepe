@@ -3,7 +3,7 @@ extends CharacterBody2D
 # Konstanta gerakan fisika
 const SPEED = 250.0
 const PUSH_PULL_SPEED = 120.0 # Kecepatan lebih lambat saat membawa kotak
-const JUMP_VELOCITY = -450.0
+const JUMP_VELOCITY = -500.0
 
 # Referensi ke AnimatedSprite2D untuk mengontrol animasi
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
