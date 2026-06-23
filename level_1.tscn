@@ -889,16 +889,16 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAgAAMAAAABAAAAAAAgAAMAAAACAAAAAAAgAAM
 tile_set = SubResource("TileSet_hn12h")
 
 [node name="Node2D" parent="." unique_id=750388151 instance=ExtResource("3_hn12h")]
-position = Vector2(1037, 416)
-
-[node name="kotak" parent="." unique_id=888928277 instance=ExtResource("4_5hph3")]
-position = Vector2(61, 478)
+position = Vector2(984, 442)
 
 [node name="tombol" parent="." unique_id=241818438 instance=ExtResource("5_bjebc")]
 position = Vector2(860, 540)
 
+[node name="kotak" parent="." unique_id=888928277 instance=ExtResource("4_5hph3")]
+position = Vector2(317, 314)
+
 [node name="kotak2" parent="." unique_id=852962055 instance=ExtResource("4_5hph3")]
-position = Vector2(198, 485)
+position = Vector2(64, 516)
 
 [node name="Node2D2" parent="." unique_id=1438202888 instance=ExtResource("5_j7kpp")]
 position = Vector2(116, 285)

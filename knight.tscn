@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://lktwbr3isjvi"]
+
+[ext_resource type="Texture2D" uid="uid://1s7adwcy6jkh" path="res://asset/character/kurung1.png" id="1_nsuie"]
+[ext_resource type="Texture2D" uid="uid://cpgcg0d5aburh" path="res://asset/character/kurung2.png" id="2_26ldq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_np0bx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nsuie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_26ldq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="knight" type="Area2D" unique_id=449227571]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=493388405]
+position = Vector2(9.74999, 60.499992)
+scale = Vector2(1.4882813, 1.7421874)
+sprite_frames = SubResource("SpriteFrames_np0bx")
+frame_progress = 0.85871845
