@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://1s7adwcy6jkh" path="res://asset/character/kurung1.png" id="1_nsuie"]
 [ext_resource type="Texture2D" uid="uid://cpgcg0d5aburh" path="res://asset/character/kurung2.png" id="2_26ldq"]
+[ext_resource type="Texture2D" uid="uid://bygvq4bxvcf6d" path="res://asset/character/pecah1.png" id="3_np0bx"]
+[ext_resource type="Texture2D" uid="uid://xucvqn3e2r4f" path="res://asset/character/pecah2.png" id="4_go3up"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_np0bx"]
 animations = [{
@@ -15,6 +17,17 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_np0bx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_go3up")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 1.0
 }]
 
 [node name="knight" type="Area2D" unique_id=449227571]
@@ -23,4 +36,4 @@ animations = [{
 position = Vector2(9.74999, 60.499992)
 scale = Vector2(1.4882813, 1.7421874)
 sprite_frames = SubResource("SpriteFrames_np0bx")
-frame_progress = 0.85871845
+autoplay = "default"

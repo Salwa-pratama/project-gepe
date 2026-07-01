@@ -1,7 +1,7 @@
 extends Node2D
 
 # 1. Preload scene HUD-nya ke dalam variabel (ganti path sesuai folder kamu)
-const HUD_SCENE = preload("res://hud.tscn") 
+const HUD_SCENE = preload("res://hud_menu.tscn") 
 
 func _ready() -> void:
 	# 2. Buat instance/kloningan dari scene HUD

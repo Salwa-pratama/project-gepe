@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bpt4up8n4psfu" path="res://asset/display/pohon1.png" id="5_2orkt"]
 [ext_resource type="Texture2D" uid="uid://dfvksh3swsyrq" path="res://asset/display/pohon2.png" id="6_aicyk"]
 [ext_resource type="Texture2D" uid="uid://bfb27vmku16l8" path="res://asset/character/jalan3.png" id="7_8b0r0"]
+[ext_resource type="PackedScene" uid="uid://fi3wj007t5q1" path="res://hud_level.tscn" id="8_km5ld"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_maaha"]
 load_path = "res://.godot/imported/64x64.png-c6dfe92bd866c2a87aa8d23fab0d309e.ctex"
@@ -17858,3 +17859,5 @@ offset_bottom = 362.0
 [node name="Jalan3" type="Sprite2D" parent="." unique_id=1398642422]
 position = Vector2(118, 458)
 texture = ExtResource("7_8b0r0")
+
+[node name="Node2D" parent="." unique_id=1461094478 instance=ExtResource("8_km5ld")]
