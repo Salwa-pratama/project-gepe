@@ -868,19 +868,19 @@ sources/0 = SubResource("TileSetAtlasSource_nmjpi")
 size = Vector2(361, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0s5r2"]
-size = Vector2(644, 28)
+size = Vector2(650, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dov7"]
 size = Vector2(145, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15wb7"]
-size = Vector2(362, 28)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehv2h"]
-size = Vector2(146.5, 28)
+size = Vector2(362, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eoq84"]
 size = Vector2(293, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehv2h"]
+size = Vector2(164.25, 29)
 
 [node name="level2" type="Area2D" unique_id=1038569463]
 
@@ -913,7 +913,7 @@ position = Vector2(179.5, 316.5)
 shape = SubResource("RectangleShape2D_7j8ne")
 
 [node name="pijakan2" type="CollisionShape2D" parent="StaticBody2D" unique_id=976705617]
-position = Vector2(329, 595)
+position = Vector2(325, 587.5)
 shape = SubResource("RectangleShape2D_0s5r2")
 
 [node name="pijakan3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1850847248]
@@ -921,12 +921,8 @@ position = Vector2(432.5, 384)
 shape = SubResource("RectangleShape2D_7dov7")
 
 [node name="pijakan4" type="CollisionShape2D" parent="StaticBody2D" unique_id=2084609739]
-position = Vector2(973, 594)
+position = Vector2(973, 588)
 shape = SubResource("RectangleShape2D_15wb7")
-
-[node name="pijakan5" type="CollisionShape2D" parent="StaticBody2D" unique_id=220900400]
-position = Vector2(724, 686)
-shape = SubResource("RectangleShape2D_ehv2h")
 
 [node name="pijakan6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1621524252]
 position = Vector2(1009.5, 388)
@@ -936,4 +932,8 @@ shape = SubResource("RectangleShape2D_eoq84")
 position = Vector2(55, 451)
 
 [node name="Area2D" parent="." unique_id=579226592 instance=ExtResource("7_7j8ne")]
-position = Vector2(702, 651)
+position = Vector2(702, 633)
+
+[node name="pijakan5" type="CollisionShape2D" parent="." unique_id=220900400]
+position = Vector2(727, 668)
+shape = SubResource("RectangleShape2D_ehv2h")
