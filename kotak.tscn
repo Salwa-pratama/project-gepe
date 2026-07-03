@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bo65airavkcw1"]
 
 [ext_resource type="Texture2D" uid="uid://cobs01g7e64xt" path="res://asset/map/64x64.png" id="1_5dryd"]
-[ext_resource type="Script" path="res://kotak.gd" id="1_kotak_gd"]
+[ext_resource type="Script" uid="uid://h5xf53qo2tsu" path="res://kotak.gd" id="1_kotak_gd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wegqy"]
 atlas = ExtResource("1_5dryd")
@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kotak"]
-size = Vector2(90.5, 90.5)
+size = Vector2(90.5, 82.5)
 
 [node name="kotak" type="CharacterBody2D" unique_id=888928277]
 script = ExtResource("1_kotak_gd")
@@ -30,5 +30,5 @@ scale = Vector2(0.72572273, 0.77777773)
 sprite_frames = SubResource("SpriteFrames_lxhco")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=904388850]
-position = Vector2(-3.25, -13.75)
+position = Vector2(-3.25, -9.75)
 shape = SubResource("RectangleShape2D_kotak")
