@@ -145,8 +145,12 @@ func apply_dialogue_line() -> void:
 
 	dialogue_label.show()
 	if not dialogue_line.text.is_empty():
+		audio_stream_player.volume_db = -5 # Kurangi volume agar lebih pelan
+		audio_stream_player.pitch_scale = 1.0 # Kembalikan nada normal
+		audio_stream_player.play() # Mulai suara mesin ketik panjang
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
+		audio_stream_player.stop() # Matikan suara begitu teks beres muncul
 
 	# Wait for next line
 	if dialogue_line.has_tag("voice"):
@@ -174,7 +178,6 @@ func next(next_id: String) -> void:
 
 #region Signals
 
-
 func _on_mutation_cooldown_timeout() -> void:
 	if will_hide_balloon:
 		will_hide_balloon = false
@@ -194,6 +197,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
 		var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
 		if mouse_was_clicked or skip_button_was_pressed:
+			if has_node("/root/SoundManager"): SoundManager.play_click()
 			get_viewport().set_input_as_handled()
 			dialogue_label.skip_typing()
 			return
@@ -205,12 +209,15 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		if has_node("/root/SoundManager"): SoundManager.play_click()
 		next(dialogue_line.next_id)
 	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
+		if has_node("/root/SoundManager"): SoundManager.play_click()
 		next(dialogue_line.next_id)
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
+	if has_node("/root/SoundManager"): SoundManager.play_click()
 	next(response.next_id)
 
 

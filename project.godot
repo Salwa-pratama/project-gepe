@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*uid://dexch3q1uoqti"
 DialogueManager="*uid://c3rodes2l3gxb"
+SoundManager="*res://sound_manager.tscn"
 
 [dialogue_manager]
 

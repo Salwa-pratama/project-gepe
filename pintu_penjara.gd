@@ -36,6 +36,8 @@ func _on_button_pressed() -> void:
 	# Putar animasi membuka pintu secara visual
 	if animated_sprite.sprite_frames.has_animation("mbuka"):
 		animated_sprite.play("mbuka")
+		if has_node("/root/SoundManager"):
+			SoundManager.play_buka_gerbang()
 
 func _on_button_released() -> void:
 	is_unlocked = false

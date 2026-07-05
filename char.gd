@@ -17,6 +17,7 @@ var start_pos: Vector2 = Vector2.ZERO
 
 var in_cutscene: bool = false
 var cutscene_dir: float = 0.0
+var was_on_floor: bool = false
 
 func _ready() -> void:
 	add_to_group("player")
@@ -44,6 +45,8 @@ func _physics_process(delta: float) -> void:
 	if grabbed_box == null:
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
+			if has_node("/root/SoundManager"):
+				SoundManager.play_lompat()
 
 	# 3. Tangani Input Arah Gerakan Horizontal (ui_left / ui_right)
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -96,6 +99,13 @@ func _physics_process(delta: float) -> void:
 
 	# 5. Jalankan pergerakan fisik karakter
 	move_and_slide()
+	
+	# 5.1 Cek apakah baru mendarat di lantai dari lompatan/jatuh
+	if is_on_floor() and not was_on_floor:
+		if has_node("/root/SoundManager"):
+			SoundManager.play_mendarat() # Suara hentakan kaki mendarat
+			
+	was_on_floor = is_on_floor()
 
 	# --- DETEKSI MENGINJAK TRAP ---
 	if is_on_floor():
@@ -104,8 +114,9 @@ func _physics_process(delta: float) -> void:
 			var collider = collision.get_collider()
 			if collider is TileMapLayer and collider.name == "trap":
 				if collider.has_method("hancurkan_blok_trap"):
-					# Titik sentuh dikurangi normal dikali 2 agar posisinya benar-benar masuk ke dalam tile trap
-					var titik_sentuh = collision.get_position() - (collision.get_normal() * 2)
+					# Titik sentuh kita paksa turun sedikit ke bawah (arah gravitasi) 
+					# biar pasti kena kotak trap yang diinjak, ngga meleset ke samping
+					var titik_sentuh = collision.get_position() + Vector2(0, 4)
 					collider.hancurkan_blok_trap(titik_sentuh)
 					
 	# --- DETEKSI TILE OVERLAP (PINTU TANPA COLLISION FISIK) ---
@@ -143,6 +154,9 @@ func _physics_process(delta: float) -> void:
 					# Putar animasi dorong
 					if animated_sprite.sprite_frames.has_animation("dorong") and is_on_floor():
 						animated_sprite.play("dorong")
+
+	# 6. Update Audio Jalan / Dorong
+	_update_audio()
 
 # Fungsi pembantu untuk mencari kotak terdekat, memprioritaskan arah hadap karakter
 func _get_nearby_box() -> CharacterBody2D:
@@ -216,3 +230,25 @@ func _deferred_return_to_level() -> void:
 		tree.root.add_child(Global.saved_level)
 		tree.current_scene = Global.saved_level
 		Global.saved_level = null
+
+func _update_audio() -> void:
+	# Pastikan SoundManager sudah diload dan siap
+	if not has_node("/root/SoundManager"):
+		return
+		
+	# Kalau sedang di udara, atau tidak bergerak horizontal, atau dalam cutscene berdiam diri
+	if not is_on_floor() or abs(velocity.x) < 1.0 or (in_cutscene and cutscene_dir == 0.0):
+		SoundManager.stop_jalan()
+		SoundManager.stop_kotak_terdorong()
+		return
+
+	# Mainkan audio berdasarkan animasi saat ini
+	if animated_sprite.animation == "jalan":
+		SoundManager.play_jalan()
+		SoundManager.stop_kotak_terdorong()
+	elif animated_sprite.animation == "dorong" or animated_sprite.animation == "narik":
+		SoundManager.play_kotak_terdorong()
+		SoundManager.stop_jalan()
+	else:
+		SoundManager.stop_jalan()
+		SoundManager.stop_kotak_terdorong()

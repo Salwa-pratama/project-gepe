@@ -3,6 +3,7 @@ extends Area2D
 @onready var karakter = $karakter
 
 func _ready() -> void:
+	if has_node("/root/SoundManager"): SoundManager.play_bgm()
 	if not Global.has_seen_ruang_kunci_start:
 		_play_start_cutscene()
 

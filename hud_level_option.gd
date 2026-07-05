@@ -37,6 +37,7 @@ func _update_buttons() -> void:
 			buttons[i].modulate = Color(0.3, 0.3, 0.3, 1) # Warna abu-abu (terkunci)
 
 func _load_level(level_num: int) -> void:
+	if has_node("/root/SoundManager"): SoundManager.play_click()
 	if level_num == 1 and not Global.has_seen_intro and get_tree().current_scene and (get_tree().current_scene.name == "Node2D" or get_tree().current_scene.name == "Home"):
 		_play_level_1_cutscene()
 	else:
@@ -50,6 +51,11 @@ func _finish_load_level(level_num: int) -> void:
 
 func _play_level_1_cutscene() -> void:
 	Global.is_in_cutscene = true
+	
+	# Nyalakan BGM Luar (suara burung)
+	if has_node("/root/SoundManager"):
+		SoundManager.play_bgm_luar()
+		
 	# Sembunyikan UI Level Option dan Canvas Layer-nya
 	self.visible = false
 	var parent_canvas = get_parent()
@@ -125,6 +131,10 @@ func _play_level_1_cutscene() -> void:
 		await get_tree().process_frame
 		timeout -= get_process_delta_time()
 	
+	# Matikan BGM Luar karena sudah masuk goa
+	if has_node("/root/SoundManager"):
+		SoundManager.stop_bgm_luar()
+		
 	# Selesai, kembalikan kontrol ke pemain
 	if "in_cutscene" in char_node:
 		char_node.in_cutscene = false
@@ -135,6 +145,7 @@ func _play_level_1_cutscene() -> void:
 	_finish_load_level(1)
 
 func _on_back_pressed() -> void:
+	if has_node("/root/SoundManager"): SoundManager.play_click()
 	Global.show_level_selection = false
 	self.visible = false
 	var main_hud = get_node_or_null("../../hud")

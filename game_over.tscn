@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://camirc7k22xvc"]
 
+[ext_resource type="Script" path="res://game_over.gd" id="1_script"]
 [ext_resource type="FontFile" uid="uid://gs1rrt608tpj" path="res://assets/font/Adventurer.ttf" id="1_y26ei"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccer4"]
@@ -34,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_script")
 
 [node name="Panel" type="Panel" parent="." unique_id=1191772457]
 layout_mode = 1

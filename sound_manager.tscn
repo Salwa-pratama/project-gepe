@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://c6p0dnqjbnopj"]
+
+[ext_resource type="AudioStream" uid="uid://bqg08uuai5cc1" path="res://asset/sound/becksound game.mp3" id="1_7jwsb"]
+[ext_resource type="Script" uid="uid://c5dgevr45mjie" path="res://sound_manager.gd" id="1_script"]
+[ext_resource type="AudioStream" uid="uid://c5ge8dmr6ehyk" path="res://asset/sound/buka kunci.ogg" id="2_h42hm"]
+[ext_resource type="AudioStream" uid="uid://ch4mqvx8qi2lg" path="res://asset/sound/bukapintu.mp3" id="3_lxsk3"]
+[ext_resource type="AudioStream" uid="uid://kjys3fyq1kfm" path="res://asset/sound/gameover.wav" id="4_m3oho"]
+[ext_resource type="AudioStream" uid="uid://cpobvhmm2u37c" path="res://asset/sound/jalan.wav" id="5_rt03n"]
+[ext_resource type="AudioStream" uid="uid://boqpru2m2hkjj" path="res://asset/sound/tarikdorong.ogg" id="6_vgaxf"]
+[ext_resource type="AudioStream" uid="uid://b6t5vv16jalg5" path="res://asset/sound/lompat.wav" id="7_lompat"]
+[ext_resource type="AudioStream" uid="uid://bsfncd7qd1tqo" path="res://asset/sound/click.wav" id="9_m3oho"]
+[ext_resource type="AudioStream" uid="uid://ctapy11433gu3" path="res://asset/sound/bgm_luar.ogg" id="10_vgaxf"]
+[ext_resource type="AudioStream" uid="uid://nbbur55b6wng" path="res://asset/sound/batu_hancur.wav" id="11_xrcvc"]
+[ext_resource type="AudioStream" uid="uid://buxjbs078il70" path="res://asset/sound/kecebur_ceren.wav" id="12_xrcvc"]
+
+[node name="sound_manager" type="Node2D" unique_id=1947978727]
+script = ExtResource("1_script")
+
+[node name="bgm" type="AudioStreamPlayer2D" parent="." unique_id=509945913]
+stream = ExtResource("1_7jwsb")
+
+[node name="sfx_buka_kunci" type="AudioStreamPlayer2D" parent="." unique_id=916347503]
+stream = ExtResource("2_h42hm")
+
+[node name="sfx_buka_gerbang" type="AudioStreamPlayer2D" parent="." unique_id=1499194024]
+stream = ExtResource("3_lxsk3")
+
+[node name="sfx_gameover" type="AudioStreamPlayer2D" parent="." unique_id=560869907]
+stream = ExtResource("4_m3oho")
+
+[node name="sfx_jalan" type="AudioStreamPlayer2D" parent="." unique_id=781666690]
+stream = ExtResource("5_rt03n")
+
+[node name="sfx_kotak_terdorong" type="AudioStreamPlayer2D" parent="." unique_id=2130727708]
+stream = ExtResource("6_vgaxf")
+
+[node name="sfx_lompat" type="AudioStreamPlayer2D" parent="." unique_id=1234567890]
+stream = ExtResource("7_lompat")
+
+[node name="sfx_mendarat" type="AudioStreamPlayer2D" parent="." unique_id=1286608618]
+stream = ExtResource("5_rt03n")
+
+[node name="sfx_click" type="AudioStreamPlayer2D" parent="." unique_id=1974344906]
+stream = ExtResource("9_m3oho")
+
+[node name="bgm_luar" type="AudioStreamPlayer2D" parent="." unique_id=201936977]
+stream = ExtResource("10_vgaxf")
+
+[node name="sfx_batu_hancur" type="AudioStreamPlayer2D" parent="." unique_id=472366398]
+stream = ExtResource("11_xrcvc")
+
+[node name="sfx_kecebur_ceren" type="AudioStreamPlayer2D" parent="." unique_id=1787743586]
+stream = ExtResource("12_xrcvc")

@@ -8,6 +8,7 @@ var falling_tiles: Array[Sprite2D] = []
 var tile_velocities: Array[float] = []
 
 func _ready() -> void:
+	if has_node("/root/SoundManager"): SoundManager.play_bgm()
 	if not Global.has_seen_level_3_start:
 		_play_start_cutscene()
 

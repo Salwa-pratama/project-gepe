@@ -1,5 +1,42 @@
 extends Area2D
 
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		if has_node("/root/SoundManager"):
+			SoundManager.stop_bgm()
+			SoundManager.play_kecebur_ceren()
+			SoundManager.play_gameover()
+		
+		# Hilangkan player agar seakan tenggelam
+		body.visible = false
+		body.set_physics_process(false)
+		
+		# Hentikan timer waktu berjalan
+		Global.stop_timer()
+		
+		# Tampilkan layar Game Over 
+		var container = get_tree().current_scene.get_node_or_null("container_game_over")
+		if container:
+			container.visible = true
+			var go = container.get_node_or_null("game_over")
+			if go:
+				go.visible = true
+		else:
+			# Jika level belum punya container game_over, buat otomatis secara kode
+			var canvas = CanvasLayer.new()
+			var game_over_scene = load("res://game_over.tscn")
+			if game_over_scene:
+				var go = game_over_scene.instantiate()
+				canvas.add_child(go)
+				get_tree().current_scene.add_child(canvas)
+	elif body.is_in_group("box"):
+		if has_node("/root/SoundManager"):
+			SoundManager.play_kecebur_ceren()
+		# Biarkan kotak tidak hancur, buat pijakan karakter
+
 func _process(_delta: float) -> void:
 	if Global.has_seen_poison_water_dialogue:
 		set_process(false)

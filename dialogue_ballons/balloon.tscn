@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Texture2D" uid="uid://b3eytrofc7i8j" path="res://asset/character/idle1.png" id="2_g763t"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="AudioStream" uid="uid://co3i0ndftvhdk" path="res://asset/sound/text_scroll.wav" id="5_4b424"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -126,7 +127,7 @@ grow_vertical = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer" unique_id=810051587]
 modulate = Color(0.99215686, 0.99215686, 0.99215686, 1)
-self_modulate = Color(0.88166183, 0, 0.31733236, 1)
+self_modulate = Color(4.0911136e-06, 0.872517, 0.025909746, 1)
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
@@ -202,6 +203,7 @@ text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1116280512]
 unique_name_in_owner = true
+stream = ExtResource("5_4b424")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

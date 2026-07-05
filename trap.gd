@@ -9,10 +9,20 @@ func hancurkan_blok_trap(titik_sentuh: Vector2):
 	# 1. Ubah posisi global (titik sentuh fisik) menjadi koordinat grid Tile
 	var cell_pos = local_to_map(to_local(titik_sentuh))
 	
-	# 2. Cek apakah ada tile di posisi tersebut (jangan bergantung hanya pada custom data, 
-	#    karena kadang lupa set custom data di semua tile pilar)
+	# 2. Cek apakah ada tile di posisi tersebut
 	if get_cell_source_id(cell_pos) != -1:
-		_hancurkan_semua_terhubung(cell_pos)
+		
+		# Putar efek suara batu hancur
+		if has_node("/root/SoundManager"):
+			SoundManager.play_batu_hancur()
+			
+		if get_tree().current_scene.name == "level_3":
+			# Di level 3, cuma hancur satu kotak yang diinjak aja
+			_spawn_efek_jatuh(cell_pos)
+			erase_cell(cell_pos)
+		else:
+			# Di level 1 dll, hancurkan semua yang terhubung (jembatan runtuh)
+			_hancurkan_semua_terhubung(cell_pos)
 
 # Algoritma Flood-Fill untuk mencari semua Tile yang menyambung menjadi 1 pilar
 func _hancurkan_semua_terhubung(start_cell: Vector2i):
@@ -64,7 +74,7 @@ func _spawn_efek_jatuh(sel: Vector2i):
 		rb.add_child(sprite)
 		rb.global_position = to_global(map_to_local(sel))
 		
-		# Beri ledakan/dorongan kecil agar puing-puing berhamburan
+		# Beri ledakan/dorongan kecil agar puing-puing berhamburan (mocar-macir realistis)
 		rb.linear_velocity = Vector2(randf_range(-60, 60), randf_range(-100, 0))
 		rb.angular_velocity = randf_range(-5, 5)
 		

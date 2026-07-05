@@ -891,9 +891,11 @@ position = Vector2(141, 365)
 
 [node name="air_racun_lvl3" parent="." unique_id=673065240 instance=ExtResource("3_16pka")]
 position = Vector2(213, 636)
+script = null
 
 [node name="air_racun_lvl4" parent="." unique_id=1379040772 instance=ExtResource("3_16pka")]
 position = Vector2(727, 637)
+script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1070692302]
 

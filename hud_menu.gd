@@ -17,6 +17,7 @@ func _ready() -> void:
 		exit_btn.pressed.connect(_on_exit_pressed)
 
 func _on_start_pressed() -> void:
+	if has_node("/root/SoundManager"): SoundManager.play_click()
 	self.visible = false
 	var hud_level = get_node_or_null("../CanvasLayer/hud_level_option")
 	if hud_level:
@@ -33,9 +34,11 @@ func _on_start_pressed() -> void:
 			get_tree().change_scene_to_file("res://hud_level_option.tscn")
 
 func _on_option_pressed() -> void:
+	if has_node("/root/SoundManager"): SoundManager.play_click()
 	# Bebas mau diisi apa nanti, sekarang kita print aja dulu
 	print("Tombol Option ditekan!")
 
 func _on_exit_pressed() -> void:
+	if has_node("/root/SoundManager"): SoundManager.play_click()
 	# Keluar dari game
 	get_tree().quit()

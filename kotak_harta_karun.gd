@@ -51,6 +51,8 @@ func _play_open_cutscene() -> void:
 	# Mainkan animasi kebuka pada chest
 	var sprite = $AnimatedSprite2D
 	if sprite:
+		if has_node("/root/SoundManager"):
+			SoundManager.play_buka_kunci()
 		sprite.play("kebuka")
 		# Tunggu sampai animasi benar-benar selesai (animasi ini lumayan lama karena speed 1 fps)
 		await sprite.animation_finished
