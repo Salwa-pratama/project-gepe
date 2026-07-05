@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://boqpru2m2hkjj" path="res://asset/sound/tarikdorong.ogg" id="6_vgaxf"]
 [ext_resource type="AudioStream" uid="uid://b6t5vv16jalg5" path="res://asset/sound/lompat.wav" id="7_lompat"]
 [ext_resource type="AudioStream" uid="uid://bsfncd7qd1tqo" path="res://asset/sound/click.wav" id="9_m3oho"]
-[ext_resource type="AudioStream" uid="uid://p4eeh848j2yr" path="res://asset/sound/bgm_luar.wav" id="10_xrcvc"]
+[ext_resource type="AudioStream" uid="uid://d2pn2yydbckk5" path="res://asset/sound/bgm_luar.wav" id="10_xrcvc"]
 [ext_resource type="AudioStream" uid="uid://nbbur55b6wng" path="res://asset/sound/batu_hancur.wav" id="11_xrcvc"]
 [ext_resource type="AudioStream" uid="uid://buxjbs078il70" path="res://asset/sound/kecebur_ceren.wav" id="12_xrcvc"]
 
