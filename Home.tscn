@@ -6852,7 +6852,6 @@ position = Vector2(1151, 581)
 position = Vector2(760, 579)
 
 [node name="hud" parent="." unique_id=1896779606 instance=ExtResource("9_ahk5f")]
-visible = false
 offset_left = 588.0
 offset_top = 335.0
 offset_right = 588.0
