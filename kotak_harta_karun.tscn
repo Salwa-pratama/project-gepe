@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c5ndajeokmt3r"]
+
+[ext_resource type="Texture2D" uid="uid://bhst8i7am1w56" path="res://asset/map/maptanpabg.png" id="1_t6xtw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqqgu"]
+atlas = ExtResource("1_t6xtw")
+region = Rect2(1419, 1083, 116, 129)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsr35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqqgu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6xtw"]
+size = Vector2(85.5, 94)
+
+[node name="kotak_harta_karun" type="Area2D" unique_id=1233431581]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=12214315]
+position = Vector2(-21, -16)
+scale = Vector2(0.73275864, 0.7248062)
+sprite_frames = SubResource("SpriteFrames_vsr35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=977762836]
+position = Vector2(-20.75, -16)
+shape = SubResource("RectangleShape2D_t6xtw")

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dprib0wvxbmu4"]
+
+[ext_resource type="Texture2D" uid="uid://c6qksbphsh0tn" path="res://assets/map/latar2.png" id="1_bla8q"]
+[ext_resource type="Script" path="res://hud_game_play.gd" id="2_hud_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bla8q"]
+atlas = ExtResource("1_bla8q")
+region = Rect2(203.97076, 142.98592, 44.057144, 40.012817)
+
+[node name="hud_gameplay" type="Control" unique_id=1945487444]
+script = ExtResource("2_hud_script")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=663817322]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="MarginContainer" unique_id=1860573120]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/Control" unique_id=1213332877]
+layout_mode = 1
+offset_right = 134.0
+offset_bottom = 49.0
+text = "||"
+
+[node name="timer" type="Label" parent="MarginContainer/Control" unique_id=2003967249]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -132.0
+offset_bottom = 28.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control" unique_id=1337999732]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.5
+offset_right = 41.5
+offset_bottom = 45.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/HBoxContainer" unique_id=1385435623]
+layout_mode = 2
+texture = SubResource("AtlasTexture_bla8q")
+
+[node name="Label2" type="Label" parent="MarginContainer/Control/HBoxContainer" unique_id=1839711561]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "x 0"

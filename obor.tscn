@@ -20,8 +20,8 @@ animations = [{
 [node name="obor" type="Node2D" unique_id=1809431092]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1234290430]
-position = Vector2(1.2499967, 10.499996)
-scale = Vector2(0.66796875, 0.7734375)
+position = Vector2(0.99999976, 0)
+scale = Vector2(0.4042969, 0.49218753)
 sprite_frames = SubResource("SpriteFrames_otets")
 animation = &"berkobar"
 autoplay = "berkobar"

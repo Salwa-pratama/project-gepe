@@ -1,34 +1,30 @@
 [gd_scene format=3 uid="uid://bo65airavkcw1"]
 
-[ext_resource type="Texture2D" uid="uid://cobs01g7e64xt" path="res://asset/map/64x64.png" id="1_5dryd"]
-[ext_resource type="Script" uid="uid://h5xf53qo2tsu" path="res://kotak.gd" id="1_kotak_gd"]
+[ext_resource type="Texture2D" uid="uid://bmgjsmcvy1bqj" path="res://asset/display/kotak.png" id="1_5dryd"]
+[ext_resource type="Script" uid="uid://ceg456h7odj5x" path="res://kotak.gd" id="1_kotak_gd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wegqy"]
-atlas = ExtResource("1_5dryd")
-region = Rect2(2542, 938, 127, 117)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lxhco"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wegqy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wegqy")
+"texture": ExtResource("1_5dryd")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kotak"]
-size = Vector2(90.5, 82.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dryd"]
+size = Vector2(73, 80)
 
-[node name="kotak" type="CharacterBody2D" unique_id=888928277]
+[node name="kotak" type="CharacterBody2D" unique_id=518614372]
 script = ExtResource("1_kotak_gd")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=904388849]
-position = Vector2(-3.0833857, -13.500005)
-scale = Vector2(0.72572273, 0.77777773)
-sprite_frames = SubResource("SpriteFrames_lxhco")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=944612720]
+position = Vector2(-16, -19.500002)
+scale = Vector2(1.1875, 1.2656248)
+sprite_frames = SubResource("SpriteFrames_wegqy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=904388850]
-position = Vector2(-3.25, -9.75)
-shape = SubResource("RectangleShape2D_kotak")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1731995049]
+position = Vector2(-16.5, -19)
+shape = SubResource("RectangleShape2D_5dryd")

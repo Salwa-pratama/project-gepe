@@ -11,8 +11,16 @@ const JUMP_VELOCITY = -500.0
 # Mendapatkan nilai gravitasi default dari Project Settings Godot
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-# Variabel untuk melacak kotak yang sedang ditarik/didorong
 var grabbed_box: CharacterBody2D = null
+var can_exit_room: bool = false
+var start_pos: Vector2 = Vector2.ZERO
+
+var in_cutscene: bool = false
+var cutscene_dir: float = 0.0
+
+func _ready() -> void:
+	add_to_group("player")
+	start_pos = global_position
 
 func _physics_process(delta: float) -> void:
 	# 1. Terapkan Gravitasi jika tidak sedang menyentuh lantai
@@ -39,6 +47,8 @@ func _physics_process(delta: float) -> void:
 
 	# 3. Tangani Input Arah Gerakan Horizontal (ui_left / ui_right)
 	var direction := Input.get_axis("ui_left", "ui_right")
+	if in_cutscene:
+		direction = cutscene_dir
 	
 	if grabbed_box != null:
 		# --- LOGIKA BERSAMA KOTAK (HOLD SHIFT) ---
@@ -86,6 +96,39 @@ func _physics_process(delta: float) -> void:
 
 	# 5. Jalankan pergerakan fisik karakter
 	move_and_slide()
+
+	# --- DETEKSI MENGINJAK TRAP ---
+	if is_on_floor():
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider is TileMapLayer and collider.name == "trap":
+				if collider.has_method("hancurkan_blok_trap"):
+					# Titik sentuh dikurangi normal dikali 2 agar posisinya benar-benar masuk ke dalam tile trap
+					var titik_sentuh = collision.get_position() - (collision.get_normal() * 2)
+					collider.hancurkan_blok_trap(titik_sentuh)
+					
+	# --- DETEKSI TILE OVERLAP (PINTU TANPA COLLISION FISIK) ---
+	var pintu_layer = get_parent().get_node_or_null("pintu")
+	# Juga cek node bernama "pintu_masuk" jika ada
+	if pintu_layer == null:
+		pintu_layer = get_parent().get_node_or_null("pintu_masuk")
+		
+	var is_stepping_on_pintu = false
+	if pintu_layer is TileMapLayer:
+		var char_pos = pintu_layer.to_local(global_position)
+		var cell_pos = pintu_layer.local_to_map(char_pos)
+		var tile_data = pintu_layer.get_cell_tile_data(cell_pos)
+		if tile_data and tile_data.get_custom_data("pintu"):
+			is_stepping_on_pintu = true
+			
+	if is_stepping_on_pintu:
+		if can_exit_room:
+			call_deferred("_deferred_return_to_level")
+			can_exit_room = false
+	else:
+		# Jika karakter tidak sedang menginjak tile pintu sama sekali, barulah dia diizinkan masuk kembali
+		can_exit_room = true
 
 	# --- LOGIKA MENDORONG TANPA SHIFT (WALK INTO BOX) ---
 	if grabbed_box == null:
@@ -162,3 +205,14 @@ func _update_animation(direction: float) -> void:
 		else:
 			if animated_sprite.sprite_frames.has_animation("idle"):
 				animated_sprite.play("idle")
+
+func _deferred_return_to_level() -> void:
+	if Global.saved_level != null:
+		var tree = get_tree()
+		var current_room = tree.current_scene
+		tree.root.remove_child(current_room)
+		current_room.queue_free()
+		
+		tree.root.add_child(Global.saved_level)
+		tree.current_scene = Global.saved_level
+		Global.saved_level = null

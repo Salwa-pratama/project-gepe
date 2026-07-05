@@ -1,13 +1,13 @@
 extends Area2D
 
-# Sinyal ketika tombol ditekan/dilepas oleh kotak
+# Sinyal ketika tombol ditekan/dilepas oleh kotak atau karakter
 signal button_pressed
 signal button_released
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-# Menyimpan referensi kotak-kotak yang sedang menekan tombol
-var pressing_boxes = []
+# Menyimpan referensi objek (kotak atau karakter) yang sedang menekan tombol
+var pressing_bodies = []
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -17,27 +17,91 @@ func _ready() -> void:
 	animated_sprite.play("none")
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("box"):
-		if not body in pressing_boxes:
-			pressing_boxes.append(body)
+	# Cek apakah yang masuk adalah kotak ATAU karakter (player)
+	if body.is_in_group("box") or body.is_in_group("player"):
+		if not body in pressing_bodies:
+			pressing_bodies.append(body)
 			
-		# Jika ini kotak pertama yang menekan tombol
-		if pressing_boxes.size() == 1:
-			# Play animasi ditekan (menggunakan sprite t2.png)
-			# Di tombol.tscn, animasi "close" adalah t2 lalu t1, "open" adalah t1 lalu t2, dan "none" adalah t1.
-			# Kita akan set frame manual ke t2.png dengan menghentikan animasi di frame 1 dari "open"
+		# Pengecekan cutscene dipisah agar tetap jalan meskipun player masih berada di atas tombol
+		if body.is_in_group("player") and not Global.has_seen_button_press:
+			Global.has_seen_button_press = true
+			_play_button_press_cutscene(body)
+		elif body.is_in_group("box") and not Global.has_seen_button_box:
+			Global.has_seen_button_box = true
+			_play_button_box_cutscene()
+			
+		# Jika ini objek pertama yang menekan tombol (secara mekanik pintu)
+		if pressing_bodies.size() == 1:
+			# Play animasi ditekan
 			animated_sprite.play("open")
 			animated_sprite.frame = 1
 			animated_sprite.pause()
 			emit_signal("button_pressed")
 
 func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("box"):
-		if body in pressing_boxes:
-			pressing_boxes.erase(body)
+	if body.is_in_group("box") or body.is_in_group("player"):
+		if body in pressing_bodies:
+			pressing_bodies.erase(body)
 			
-		# Jika tidak ada kotak lagi di atas tombol
-		if pressing_boxes.size() == 0:
-			# Kembalikan ke visual t1.png
+		# Jika tidak ada objek lagi di atas tombol
+		if pressing_bodies.size() == 0:
+			# Kembalikan ke visual normal
 			animated_sprite.play("none")
 			emit_signal("button_released")
+			
+			if body.is_in_group("player") and not Global.has_seen_button_release:
+				Global.has_seen_button_release = true
+				_play_button_release_cutscene(body)
+
+func _play_button_press_cutscene(body: Node2D) -> void:
+	Global.is_in_cutscene = true
+	if "in_cutscene" in body:
+		body.in_cutscene = true
+		body.cutscene_dir = 0.0
+	var balloon_scene = load("res://dialogue_ballons/balloon.tscn")
+	if balloon_scene:
+		var balloon = balloon_scene.instantiate()
+		get_tree().current_scene.add_child(balloon)
+		var resource = load("res://dialogues/main.dialogue")
+		balloon.start(resource, "level_1_button_press")
+		await balloon.tree_exited
+	if "in_cutscene" in body:
+		body.in_cutscene = false
+	Global.is_in_cutscene = false
+
+func _play_button_release_cutscene(body: Node2D) -> void:
+	Global.is_in_cutscene = true
+	if "in_cutscene" in body:
+		body.in_cutscene = true
+		body.cutscene_dir = 0.0
+	var balloon_scene = load("res://dialogue_ballons/balloon.tscn")
+	if balloon_scene:
+		var balloon = balloon_scene.instantiate()
+		get_tree().current_scene.add_child(balloon)
+		var resource = load("res://dialogues/main.dialogue")
+		balloon.start(resource, "level_1_button_release")
+		await balloon.tree_exited
+	if "in_cutscene" in body:
+		body.in_cutscene = false
+	Global.is_in_cutscene = false
+
+func _play_button_box_cutscene() -> void:
+	Global.is_in_cutscene = true
+	var char_nodes = get_tree().get_nodes_in_group("player")
+	if char_nodes.is_empty(): return
+	var player = char_nodes[0]
+	
+	if "in_cutscene" in player:
+		player.in_cutscene = true
+		player.cutscene_dir = 0.0
+	var balloon_scene = load("res://dialogue_ballons/balloon.tscn")
+	if balloon_scene:
+		var balloon = balloon_scene.instantiate()
+		get_tree().current_scene.add_child(balloon)
+		var resource = load("res://dialogues/main.dialogue")
+		balloon.start(resource, "level_1_button_box")
+		await balloon.tree_exited
+	if "in_cutscene" in player:
+		player.in_cutscene = false
+	Global.is_in_cutscene = false
+
