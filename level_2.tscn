@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://camirc7k22xvc" path="res://game_over.tscn" id="9_ehv2h"]
 [ext_resource type="Script" uid="uid://bce8kncawivoj" path="res://trap.gd" id="10_trap"]
 [ext_resource type="PackedScene" uid="uid://dprib0wvxbmu4" path="res://hud_game_play.tscn" id="11_eoq84"]
+[ext_resource type="PackedScene" uid="uid://duxojec6gfsdy" path="res://obor.tscn" id="12_yl73a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nmjpi"]
 texture = ExtResource("1_jg0dc")
@@ -631,6 +632,20 @@ custom_data_layer_0/name = "hancur"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_0s5r2")
 
+[sub_resource type="Environment" id="Environment_eoq84"]
+background_mode = 3
+tonemap_mode = 1
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 1.0
+glow_hdr_threshold = 1.05
+glow_hdr_luminance_cap = 167.49
+fog_light_color = Color(1, 1, 1, 1)
+adjustment_enabled = true
+adjustment_brightness = 0.92
+adjustment_contrast = 1.345
+adjustment_saturation = 2.0
+
 [node name="Node2D2" type="Area2D" unique_id=2089271248]
 script = ExtResource("1_7j8ne")
 
@@ -688,3 +703,18 @@ visible = false
 [node name="game_over" parent="container_game_over" unique_id=1419303176 instance=ExtResource("9_ehv2h")]
 offset_left = 2.0
 offset_right = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1131845114]
+environment = SubResource("Environment_eoq84")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1483843525]
+color = Color(0.30156612, 0.3525531, 0.31074777, 1)
+
+[node name="obor" parent="." unique_id=1809431092 instance=ExtResource("12_yl73a")]
+position = Vector2(922, 89)
+
+[node name="obor2" parent="." unique_id=990175488 instance=ExtResource("12_yl73a")]
+position = Vector2(847, 475)
+
+[node name="obor3" parent="." unique_id=859438967 instance=ExtResource("12_yl73a")]
+position = Vector2(291, 369)

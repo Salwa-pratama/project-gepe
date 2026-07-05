@@ -19,6 +19,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_otets"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+inherit_velocity_ratio = 0.311
+spread = 180.0
+initial_velocity_min = 15.2699995
+initial_velocity_max = 83.97
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 7.64
+
 [node name="obor" type="Node2D" unique_id=1809431092]
 script = ExtResource("1_otets")
 
@@ -34,5 +45,9 @@ frame_progress = 0.07730726
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1973533455]
 position = Vector2(2.0000305, -2)
 scale = Vector2(1.1064452, 1.0966796)
-color = Color(0.8357589, 0.45837194, 0, 1)
+color = Color(0.8356356, 0.45895782, 0, 0.693)
 texture = ExtResource("3_ocs7e")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=396222755]
+position = Vector2(0, -9)
+process_material = SubResource("ParticleProcessMaterial_otets")

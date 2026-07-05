@@ -103,11 +103,18 @@ _data = {
 &"idle": SubResource("Animation_74f7h")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ndu7g"]
+particle_flag_disable_z = true
+gravity = Vector3(0, -20, 0)
+scale_min = 12.88
+scale_max = 13.179999
+color = Color(0.7261429, 0.5167415, 0.2840028, 1)
+
 [node name="karakter" type="CharacterBody2D" unique_id=1438202888]
 script = ExtResource("13_char_gd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2123752292]
-position = Vector2(6.7499957, 7.499998)
+position = Vector2(7.0000005, 7)
 scale = Vector2(0.8789062, 0.8515625)
 sprite_frames = SubResource("SpriteFrames_mhphn")
 animation = &"idle"
@@ -119,3 +126,9 @@ shape = SubResource("RectangleShape2D_ndu7g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=60824399]
 libraries/ = SubResource("AnimationLibrary_cfrs6")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=803651646]
+position = Vector2(-12, 56)
+emitting = false
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_ndu7g")

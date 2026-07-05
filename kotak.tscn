@@ -28,3 +28,6 @@ sprite_frames = SubResource("SpriteFrames_wegqy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1731995049]
 position = Vector2(-16.5, -19)
 shape = SubResource("RectangleShape2D_5dryd")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1617350692]
+position = Vector2(-36, 19)

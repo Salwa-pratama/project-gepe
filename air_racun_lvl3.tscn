@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cg3t20a5y1qpl"]
 
-[ext_resource type="Script" path="res://air_racun.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://rqclh5bsb0rh" path="res://asset/display/latar.png" id="1_hfviq"]
+[ext_resource type="Script" uid="uid://b4ka1rfxqdvh4" path="res://air_racun.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://btnmocnqfjv2i" path="res://asset/grapik/circle_05.png" id="3_nmf0m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cfhm"]
 atlas = ExtResource("1_hfviq")
@@ -32,6 +33,7 @@ size = Vector2(322, 59)
 script = ExtResource("1_script")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2122293888]
+modulate = Color(0.99956036, 1.6124506, 0.99956036, 1)
 position = Vector2(138.87794, -71.47756)
 scale = Vector2(5.282691, 3.0331376)
 sprite_frames = SubResource("SpriteFrames_shl1u")
@@ -40,3 +42,9 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=372732922]
 position = Vector2(139, -11.5)
 shape = SubResource("RectangleShape2D_nmf0m")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=518153917]
+position = Vector2(143, -23.499996)
+scale = Vector2(1.4326172, 0.27539063)
+color = Color(0, 1.3758042, 0.33436075, 0.14500001)
+texture = ExtResource("3_nmf0m")

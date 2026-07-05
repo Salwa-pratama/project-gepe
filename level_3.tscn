@@ -823,8 +823,26 @@ custom_data_layer_0/name = "hancur"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_fmu3g")
 
+[sub_resource type="Environment" id="Environment_833wy"]
+background_mode = 3
+tonemap_mode = 1
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 1.0
+glow_hdr_threshold = 1.05
+glow_hdr_luminance_cap = 167.49
+fog_light_color = Color(1, 1, 1, 1)
+adjustment_enabled = true
+adjustment_brightness = 0.92
+adjustment_contrast = 1.345
+adjustment_saturation = 2.0
+
 [node name="Node2D" type="Area2D" unique_id=1149348784]
 script = ExtResource("1_7ds5r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1070692302]
+
+[node name="hud_gameplay" parent="CanvasLayer" unique_id=1945487444 instance=ExtResource("12_833wy")]
 
 [node name="Control" type="Control" parent="." unique_id=796127451]
 layout_mode = 3
@@ -866,10 +884,19 @@ position = Vector2(989, 141)
 special_room_scene = "res://ruang_kunci.tscn"
 
 [node name="obor" parent="." unique_id=1809431092 instance=ExtResource("7_fmu3g")]
-position = Vector2(201, 92)
+position = Vector2(220, 90)
 
-[node name="obor2" parent="." unique_id=705875867 instance=ExtResource("7_fmu3g")]
-position = Vector2(59, 95)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1982232762]
+environment = SubResource("Environment_833wy")
+
+[node name="obor3" parent="." unique_id=1306020616 instance=ExtResource("7_fmu3g")]
+position = Vector2(394, 416)
+
+[node name="obor4" parent="." unique_id=359236763 instance=ExtResource("7_fmu3g")]
+position = Vector2(947, 118)
+
+[node name="obor5" parent="." unique_id=1158370661 instance=ExtResource("7_fmu3g")]
+position = Vector2(828, 471)
 
 [node name="karakter" parent="." unique_id=1438202888 instance=ExtResource("3_j8bo8")]
 position = Vector2(76, 138)
@@ -895,6 +922,5 @@ position = Vector2(213, 636)
 [node name="air_racun_lvl4" parent="." unique_id=1379040772 instance=ExtResource("3_16pka")]
 position = Vector2(727, 637)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1070692302]
-
-[node name="hud_gameplay" parent="CanvasLayer" unique_id=1945487444 instance=ExtResource("12_833wy")]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1726506695]
+color = Color(0.30156612, 0.3525531, 0.31074777, 1)

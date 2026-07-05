@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -500.0
 
 # Referensi ke AnimatedSprite2D untuk mengontrol animasi
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var dust_particles: GPUParticles2D = $GPUParticles2D
 
 # Mendapatkan nilai gravitasi default dari Project Settings Godot
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -22,6 +23,24 @@ var was_on_floor: bool = false
 func _ready() -> void:
 	add_to_group("player")
 	start_pos = global_position
+	
+	# Setup pengaturan visual efek partikel pasir/debu
+	if dust_particles and dust_particles.process_material is ParticleProcessMaterial:
+		var mat = dust_particles.process_material as ParticleProcessMaterial
+		mat.particle_flag_disable_z = true
+		mat.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
+		mat.emission_sphere_radius = 4.0
+		mat.direction = Vector3(-1, -0.5, 0)
+		mat.spread = 25.0
+		mat.initial_velocity_min = 20.0
+		mat.initial_velocity_max = 50.0
+		mat.gravity = Vector3(0, -10, 0)
+		mat.scale_min = 4.0
+		mat.scale_max = 8.0
+		mat.color = Color(0.76, 0.65, 0.45, 0.8) # Warna pasir
+		dust_particles.amount = 12
+		dust_particles.lifetime = 0.4
+		dust_particles.explosiveness = 0.05
 
 func _physics_process(delta: float) -> void:
 	# 1. Terapkan Gravitasi jika tidak sedang menyentuh lantai
@@ -154,6 +173,17 @@ func _physics_process(delta: float) -> void:
 					# Putar animasi dorong
 					if animated_sprite.sprite_frames.has_animation("dorong") and is_on_floor():
 						animated_sprite.play("dorong")
+
+	# --- KONTROL EFEK DEBU JALAN ---
+	if is_on_floor() and abs(velocity.x) > 10.0 and not (in_cutscene and cutscene_dir == 0.0):
+		dust_particles.emitting = true
+		var facing_dir = 1.0 if not animated_sprite.flip_h else -1.0
+		dust_particles.position.x = -12.0 * facing_dir
+		if dust_particles.process_material is ParticleProcessMaterial:
+			var mat = dust_particles.process_material as ParticleProcessMaterial
+			mat.direction = Vector3(-facing_dir, -0.3, 0)
+	else:
+		dust_particles.emitting = false
 
 	# 6. Update Audio Jalan / Dorong
 	_update_audio()
