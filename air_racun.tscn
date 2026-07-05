@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cs78d2o3icq0d"]
 
+[ext_resource type="Script" path="res://air_racun.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://rqclh5bsb0rh" path="res://asset/display/latar.png" id="1_cy5cu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cfhm"]
@@ -28,6 +29,7 @@ animations = [{
 size = Vector2(255, 59)
 
 [node name="air_racun" type="Area2D" unique_id=579226592]
+script = ExtResource("1_script")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=399121434]
 position = Vector2(104.92027, -71.47756)

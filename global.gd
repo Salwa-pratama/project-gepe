@@ -13,6 +13,11 @@ var has_seen_button_press: bool = false
 var has_seen_button_release: bool = false
 var has_seen_button_box: bool = false
 var has_seen_level_2_start: bool = false
+var has_seen_level_3_start: bool = false
+var has_seen_ruang_kunci_start: bool = false
+var has_seen_locked_chest: bool = false
+var has_opened_chest: bool = false
+var has_seen_poison_water_dialogue: bool = false
 var is_in_cutscene: bool = false
 
 var collected_keys: int = 0

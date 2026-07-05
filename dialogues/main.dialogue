@@ -1,6 +1,3 @@
-~ start 
-Nathan : Hello semua !
-=> END
 
 ~ level_1_intro
 Steven: Haduh gimana ya...
@@ -45,4 +42,31 @@ Steven: Okelah, coba langsung aja masuk ke gerbang, aku penasaran di dalamnya ad
 ~ level_2_start
 Steven: Tempat apa lagi ini...
 Steven: Kayaknya di sini lebih berbahaya, aku harus berhati-hati.
+=> END
+~ poison_water
+Steven: Hmm ini air kayaknya berbahaya.
+Steven: Aku harus berhati-hati jangan sampai terjatuh.
+Steven: Atau ngg aku bisa pulang ke rahmatullah dan ngg jadi orang kaya di dunia.
+=> END
+
+~ level_3_start
+Steven: Eh apa itu....
+Steven: Wah akhirnya aku menemukannya, aku akan jadi orang kaya!!!
+Steven: Eh tpi ini tempatnya cukup berbahaya kaya nya aku ngg boleh nafsu aku harus berhati hati
+Steven: Aku harus tetap hati-hati dan berpikir secara logika.
+=> END
+
+~ locked_chest
+Steven: Ah terkunci rupanya...
+Steven: Kayaknya aku harus mencari kuncinya dulu nih... di mana ya....
+=> END
+
+~ ruang_kunci_start
+Steven: Ahaa bravo hari ini memang hari keberuntungan ku, aku menemukan kuncinya!
+Steven: Aku harus segera mengambil dan membuka harta karun dengan kunci itu lalu aku akan jadi orang kaya haha gasss.
+=> END
+
+~ chest_opened
+Steven: Wah gila gwa beneran kaya, ini emasnya banyak banget!
+Steven: Horeee makkk aku kayaaaa!
 => END

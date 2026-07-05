@@ -100,7 +100,7 @@ theme_override_fonts/font = ExtResource("1_37p78")
 theme_override_font_sizes/font_size = 44
 theme_override_styles/normal = SubResource("StyleBoxFlat_37p78")
 theme_override_styles/hover = SubResource("StyleBoxFlat_64ctp")
-text = "Option"
+text = "Settings"
 
 [node name="exit" type="Button" parent="VBoxContainer" unique_id=722411542]
 layout_mode = 2
