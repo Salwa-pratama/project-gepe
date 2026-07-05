@@ -35,6 +35,11 @@ func add_key() -> void:
 	collected_keys += 1
 	keys_updated.emit(collected_keys)
 
+func use_key() -> void:
+	if collected_keys > 0:
+		collected_keys -= 1
+		keys_updated.emit(collected_keys)
+
 func stop_timer() -> void:
 	timer_running = false
 

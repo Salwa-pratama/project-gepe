@@ -39,6 +39,7 @@ func _play_locked_cutscene() -> void:
 func _play_open_cutscene() -> void:
 	Global.has_opened_chest = true
 	Global.is_in_cutscene = true
+	Global.use_key() # Pakai 1 kunci untuk buka peti dan update UI
 	
 	# Hentikan pergerakan karakter
 	var chars = get_tree().get_nodes_in_group("player")
@@ -51,9 +52,11 @@ func _play_open_cutscene() -> void:
 	var sprite = $AnimatedSprite2D
 	if sprite:
 		sprite.play("kebuka")
+		# Tunggu sampai animasi benar-benar selesai (animasi ini lumayan lama karena speed 1 fps)
+		await sprite.animation_finished
 		
-	# Tunggu karakter diam dan nikmatin kotak kebuka (misal 2 detik)
-	await get_tree().create_timer(2.0).timeout
+	# Setelah peti terbuka full, diam termenung sejenak (1.5 detik) buat dapet feel-nya
+	await get_tree().create_timer(1.5).timeout
 	
 	# Munculkan dialog kemenangan
 	var balloon_scene = load("res://dialogue_ballons/balloon.tscn")
@@ -64,9 +67,15 @@ func _play_open_cutscene() -> void:
 		balloon.start(resource, "chest_opened")
 		await balloon.tree_exited
 		
-	# Bebaskan karakter setelah selesai dialog
+	# Bebaskan karakter setelah selesai dialog (meski nanti ganti scene, biar aman)
 	if chars.size() > 0:
 		if "in_cutscene" in chars[0]:
 			chars[0].in_cutscene = false
 			
 	Global.is_in_cutscene = false
+	
+	# Tamatin gamenya dan buka semua level!
+	Global.unlocked_levels = 3
+	
+	# Pindah ke layar utama (Home)
+	get_tree().change_scene_to_file("res://Home.tscn")
