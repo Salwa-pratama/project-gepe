@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://duxojec6gfsdy"]
 
+[ext_resource type="Script" uid="uid://pcuq17rpcnu0" path="res://obor.gd" id="1_otets"]
 [ext_resource type="Texture2D" uid="uid://biwnwvpf15gv5" path="res://asset/display/api1.png" id="1_xaa6o"]
 [ext_resource type="Texture2D" uid="uid://givwxu0y8o4n" path="res://asset/display/api2.png" id="2_ocs7e"]
+[ext_resource type="Texture2D" uid="uid://btnmocnqfjv2i" path="res://asset/grapik/circle_05.png" id="3_ocs7e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_otets"]
 animations = [{
@@ -18,11 +20,19 @@ animations = [{
 }]
 
 [node name="obor" type="Node2D" unique_id=1809431092]
+script = ExtResource("1_otets")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1234290430]
-position = Vector2(0.99999976, 0)
-scale = Vector2(0.4042969, 0.49218753)
+modulate = Color(1.380357, 1.380357, 0.6393192, 1)
+position = Vector2(2.7812493, -5.1250014)
+scale = Vector2(0.55029297, 0.70507807)
 sprite_frames = SubResource("SpriteFrames_otets")
 animation = &"berkobar"
 autoplay = "berkobar"
 frame_progress = 0.07730726
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1973533455]
+position = Vector2(2.0000305, -2)
+scale = Vector2(1.1064452, 1.0966796)
+color = Color(0.8357589, 0.45837194, 0, 1)
+texture = ExtResource("3_ocs7e")
