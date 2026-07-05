@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cg3t20a5y1qpl"]
+
+[ext_resource type="Texture2D" uid="uid://rqclh5bsb0rh" path="res://asset/display/latar.png" id="1_hfviq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cfhm"]
+atlas = ExtResource("1_hfviq")
+region = Rect2(66, 67, 61, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkfi8"]
+atlas = ExtResource("1_hfviq")
+region = Rect2(1, 67, 60, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shl1u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cfhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkfi8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmf0m"]
+size = Vector2(322, 59)
+
+[node name="air_racun_lvl3" type="Area2D" unique_id=673065240]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2122293888]
+position = Vector2(138.87794, -71.47756)
+scale = Vector2(5.282691, 3.0331376)
+sprite_frames = SubResource("SpriteFrames_shl1u")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=372732922]
+position = Vector2(139, -11.5)
+shape = SubResource("RectangleShape2D_nmf0m")

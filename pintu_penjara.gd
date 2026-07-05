@@ -2,16 +2,19 @@ extends Area2D
 
 # Ekspor variabel agar bisa diatur di editor untuk setiap level berbeda
 @export_file("*.tscn") var next_scene: String = "res://level_2.tscn"
+@export_file("*.tscn") var special_room_scene: String = ""
 @export var button_path: NodePath
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var is_opened = false
 var is_unlocked = true # Jika ada tombol, diset false sampai ditekan
+var can_enter_special = true
 
 func _ready() -> void:
 	# Hubungkan sinyal saat tubuh lain masuk ke area pintu
 	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
 	
 	# Cari tombol di level secara otomatis
 	var button = null
@@ -51,9 +54,14 @@ func _on_body_entered(body: Node2D) -> void:
 		
 	# Pastikan yang masuk adalah karakter pemain
 	if body is CharacterBody2D:
-		is_opened = true
-		# Matikan deteksi tabrakan lebih lanjut
-		monitoring = false
+		if special_room_scene != "":
+			if not can_enter_special:
+				return
+			can_enter_special = false
+		else:
+			is_opened = true
+			# Matikan deteksi tabrakan lebih lanjut
+			monitoring = false
 		
 		# Jika pintu sudah dalam keadaan terbuka (karena tombol ditekan), langsung pindah scene
 		# Tetapi jika animasi membuka masih berputar, tunggu sampai selesai
@@ -68,10 +76,35 @@ func _on_animation_finished() -> void:
 		animated_sprite.animation_finished.disconnect(_on_animation_finished)
 	_change_scene()
 
+func _on_body_exited(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		can_enter_special = true
+
 func _change_scene() -> void:
-	if next_scene != "":
-		# Berpindah ke level selanjutnya
-		get_tree().change_scene_to_file(next_scene)
-	else:
-		# Jika tidak diset, kembali ke menu utama
-		get_tree().change_scene_to_file("res://Home.tscn")
+	call_deferred("_deferred_change_scene")
+
+func _deferred_change_scene() -> void:
+	# Jika disetel untuk memuat scene sub-ruangan, lakukan transisi preservasi state
+	if special_room_scene != "":
+		var tree = get_tree()
+		Global.saved_level = tree.current_scene
+		tree.root.remove_child(Global.saved_level)
+		
+		var new_room = load(special_room_scene).instantiate()
+		tree.root.add_child(new_room)
+		tree.current_scene = new_room
+		return
+
+	# Baca nama file scene yang sedang dimainkan
+	var current_scene_file = get_tree().current_scene.scene_file_path
+	var lvl_str = current_scene_file.get_file().replace("level_", "").replace(".tscn", "")
+	
+	if lvl_str.is_valid_int():
+		var current_lvl = lvl_str.to_int()
+		# Buka level berikutnya jika belum terbuka
+		if current_lvl >= Global.unlocked_levels:
+			Global.unlocked_levels = current_lvl + 1
+			
+	# Setelah menang, kembali ke Home dan tampilkan menu level
+	Global.show_level_selection = true
+	get_tree().change_scene_to_file("res://Home.tscn")

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://w78nd3mb4783"]
+
+[ext_resource type="Texture2D" uid="uid://c6qksbphsh0tn" path="res://assets/map/latar2.png" id="1_pgv46"]
+[ext_resource type="Script" path="res://kunci.gd" id="2_kunci_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbsvq"]
+atlas = ExtResource("1_pgv46")
+region = Rect2(195, 131, 60, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l1chq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbsvq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f20jl"]
+radius = 28.0
+
+[node name="Node2D" type="Area2D" unique_id=1501841176]
+script = ExtResource("2_kunci_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1336069844]
+sprite_frames = SubResource("SpriteFrames_l1chq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1426587687]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_f20jl")

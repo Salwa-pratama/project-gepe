@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://clilv216jvsla" path="res://asset/character/tarik1.png" id="10_376lq"]
 [ext_resource type="Texture2D" uid="uid://da3bfg8phqu5a" path="res://asset/character/tarik2.png" id="11_b8cv4"]
 [ext_resource type="Texture2D" uid="uid://cpr856860c74c" path="res://asset/character/tarik3.png" id="12_tnf04"]
-[ext_resource type="Script" path="res://char.gd" id="13_char_gd"]
+[ext_resource type="Script" uid="uid://nsaitkl5jm2k" path="res://char.gd" id="13_char_gd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhphn"]
 animations = [{
@@ -67,6 +67,11 @@ animations = [{
 "name": &"lompat",
 "speed": 2.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"mati",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("10_376lq")
@@ -83,17 +88,34 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndu7g"]
-size = Vector2(58, 117)
+size = Vector2(47, 100)
 
-[node name="Node2D" type="CharacterBody2D" unique_id=1438202888]
+[sub_resource type="Animation" id="Animation_ndu7g"]
+resource_name = "dorong"
+
+[sub_resource type="Animation" id="Animation_74f7h"]
+resource_name = "idle"
+length = 7.266667
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cfrs6"]
+_data = {
+&"dorong": SubResource("Animation_ndu7g"),
+&"idle": SubResource("Animation_74f7h")
+}
+
+[node name="karakter" type="CharacterBody2D" unique_id=1438202888]
 script = ExtResource("13_char_gd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2123752292]
-position = Vector2(0, -8)
+position = Vector2(6.7499957, 7.499998)
+scale = Vector2(0.8789062, 0.8515625)
 sprite_frames = SubResource("SpriteFrames_mhphn")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=-1171215004]
-position = Vector2(5, -2.5)
+position = Vector2(9.5, 5)
 shape = SubResource("RectangleShape2D_ndu7g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=60824399]
+libraries/ = SubResource("AnimationLibrary_cfrs6")

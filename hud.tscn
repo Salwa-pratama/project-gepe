@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://dtico6i3okntk"]
+
+[ext_resource type="FontFile" uid="uid://gs1rrt608tpj" path="res://assets/font/Adventurer.ttf" id="1_37p78"]
+[ext_resource type="Script" uid="uid://blvkkbiagjo8u" path="res://hud_menu.gd" id="2_hudmenu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sq4i"]
+bg_color = Color(0, 0, 0, 0.22352941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37p78"]
+bg_color = Color(0.23611337, 0.1574409, 0.14627099, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 61
+corner_radius_bottom_left = 61
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ctp"]
+bg_color = Color(0.42168406, 0.31329417, 0.19116098, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 61
+corner_radius_bottom_left = 61
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="hud" type="Control" unique_id=1896779606]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hudmenu")
+
+[node name="Panel" type="Panel" parent="." unique_id=272051276]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -584.5
+offset_top = -329.5
+offset_right = 584.5
+offset_bottom = 329.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8sq4i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=64329181]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.25
+offset_top = -250.25
+offset_right = 302.25
+offset_bottom = 250.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 22
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=344477308]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 98
+text = "Find Treasure"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=823846400]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 27
+text = "Find end get paid"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="start" type="Button" parent="VBoxContainer" unique_id=663419646]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_37p78")
+theme_override_styles/hover = SubResource("StyleBoxFlat_64ctp")
+text = "Start"
+
+[node name="option" type="Button" parent="VBoxContainer" unique_id=1398512871]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_37p78")
+theme_override_styles/hover = SubResource("StyleBoxFlat_64ctp")
+text = "Settings"
+
+[node name="exit" type="Button" parent="VBoxContainer" unique_id=722411542]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_37p78")
+theme_override_styles/hover = SubResource("StyleBoxFlat_64ctp")
+text = "Exit"
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1398427492]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 16
+text = "2026 , v 1.0"
+horizontal_alignment = 1
+vertical_alignment = 1

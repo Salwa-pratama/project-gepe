@@ -1,14 +1,11 @@
-extends Node2D
+extends Area2D
+var dialogue_resource = preload("res://dialogues/main.dialogue")
 
-# 1. Preload scene HUD-nya ke dalam variabel (ganti path sesuai folder kamu)
-const HUD_SCENE = preload("res://hud_menu.tscn") 
-
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# 2. Buat instance/kloningan dari scene HUD
-	var hud_instance = HUD_SCENE.instantiate()
-	
-	# 3. Masukkan ke dalam main screen sebagai anak (child node)
-	add_child(hud_instance)
+	#DialogueManager.show_example_dialogue_balloon(dialogue_resource, "start")
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

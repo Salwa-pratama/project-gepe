@@ -1,18 +1,14 @@
 [gd_scene format=3 uid="uid://dv0itunwmb7w4"]
 
 [ext_resource type="Script" uid="uid://f0lsgyejdd07" path="res://pintu_penjara.gd" id="1_pintu_gd"]
-[ext_resource type="Texture2D" uid="uid://dcy661btuunr8" path="res://asset/display/p1.png" id="2_0mthh"]
-[ext_resource type="Texture2D" uid="uid://bdnj4kn2do6em" path="res://asset/display/p2.png" id="3_jv55j"]
-[ext_resource type="Texture2D" uid="uid://c2b8asnn6tdcm" path="res://asset/display/p3.png" id="4_uscwk"]
-[ext_resource type="Texture2D" uid="uid://dogic65bksmhb" path="res://asset/display/p4.png" id="5_rxctb"]
-[ext_resource type="Texture2D" uid="uid://27veibp7fc3l" path="res://asset/display/p5.png" id="6_e1pqq"]
-[ext_resource type="Texture2D" uid="uid://d0yndxrfylkpn" path="res://asset/display/p6.png" id="7_tcatc"]
+[ext_resource type="Texture2D" uid="uid://7fqkestu1oxo" path="res://asset/display/gerbang_0002.png" id="3_uscwk"]
+[ext_resource type="Texture2D" uid="uid://1wx3qxf1gcd5" path="res://asset/display/gerbang_0001.png" id="4_rxctb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mthh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0mthh")
+"texture": ExtResource("3_uscwk")
 }],
 "loop": true,
 "name": &"idle_nutup",
@@ -20,22 +16,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0mthh")
+"texture": ExtResource("3_uscwk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_jv55j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_uscwk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_rxctb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_e1pqq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_tcatc")
+"texture": ExtResource("4_rxctb")
 }],
 "loop": false,
 "name": &"mbuka",
@@ -43,41 +27,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_tcatc")
+"texture": ExtResource("4_rxctb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_e1pqq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_rxctb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_uscwk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_jv55j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_0mthh")
+"texture": ExtResource("3_uscwk")
 }],
-"loop": true,
+"loop": false,
 "name": &"nutup",
-"speed": 2.0
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mthh"]
-size = Vector2(144.5, 125)
+size = Vector2(153, 106)
 
-[node name="Node2D" type="Area2D" unique_id=750388151]
+[node name="pintu_penjara" type="Area2D" unique_id=750388151]
 script = ExtResource("1_pintu_gd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1441102390]
-position = Vector2(61.141083, -14.500007)
-scale = Vector2(2.2477956, 2.0546875)
+position = Vector2(83.60581, -50.875008)
+scale = Vector2(2.9498184, 3.1914058)
 sprite_frames = SubResource("SpriteFrames_0mthh")
-animation = &"mbuka"
+animation = &"idle_nutup"
 autoplay = "idle_nutup"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1531579674]
-position = Vector2(63, 31)
+position = Vector2(85.5, -3)
 shape = SubResource("RectangleShape2D_0mthh")

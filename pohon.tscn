@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dtjxebt1koo2f"]
+
+[ext_resource type="Texture2D" uid="uid://dv3v6nc4nsj8a" path="res://asset/display/pohon_0002.png" id="1_ft5on"]
+[ext_resource type="Texture2D" uid="uid://cv7mtogqpkluo" path="res://asset/display/pohon_0001.png" id="2_v4qtp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5evp3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ft5on")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_v4qtp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Node2D" type="Area2D" unique_id=802806226]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1345911871]
+position = Vector2(-8, -16.000004)
+scale = Vector2(3.3242188, 3.875)
+sprite_frames = SubResource("SpriteFrames_5evp3")
+autoplay = "default"
+frame_progress = 0.73137856

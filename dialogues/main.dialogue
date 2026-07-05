@@ -1,0 +1,72 @@
+
+~ level_1_intro
+Steven: Haduh gimana ya...
+Steven: Dimana ya cari duit? Ibuku sedang sakit, ibuku butuh obat dan aku pengen banget dapet harta karun... blablabla...
+Steven: Eh... Wah, kebetulan di depan sana ada goa nih!
+=> END
+
+~ level_1_pamflet
+Steven: Wah apa ini, coba aku baca...
+Steven: Didalam ada harta karun? Emas? Wah boleh nih coba aku masuk siapa tahu aku jadi orang kaya.
+Steven: Tapi tunggu dulu... ini tulisan apa? "Yang memasuki goa tidak pernah keluar"?
+Steven: Ah bodo amat lah! Mau mati di dalem juga gpp, gas ah masuk!
+=> END
+
+~ level_1_start
+Steven: Njir tempatnya gelap banget...
+Steven: Ini cuma ada kotak-kotak, aku harus kemana ya?
+Steven: Coba ah aku explore dulu.
+=> END
+
+~ level_1_trap
+Steven: Ah sialan pijakannya roboh! Rupanya aku harus berhati-hati.
+Steven: Untung aja aku nggak mati, alhamdulillah.
+=> END
+
+~ level_1_button_press
+Steven: Eh tunggu dulu, apa ini?
+Steven: Oh ini tombol untuk membuka gerbang rupanya... Okelah!
+=> END
+
+~ level_1_button_release
+Steven: Eh kalau nggak diinjak dia balik lagi yah hmmm...
+Steven: Kayaknya aku harus memanfaatkan kotak ini untuk menekan tombol secara terus-menerus biar gerbangnya tetap terbuka.
+Steven: Coba deh...
+=> END
+
+~ level_1_button_box
+Steven: Aku cerdas juga ya ternyata!
+Steven: Okelah, coba langsung aja masuk ke gerbang, aku penasaran di dalamnya ada apa lagi.
+=> END
+
+~ level_2_start
+Steven: Tempat apa lagi ini...
+Steven: Kayaknya di sini lebih berbahaya, aku harus berhati-hati.
+=> END
+~ poison_water
+Steven: Hmm ini air kayaknya berbahaya.
+Steven: Aku harus berhati-hati jangan sampai terjatuh.
+Steven: Atau ngg aku bisa pulang ke rahmatullah dan ngg jadi orang kaya di dunia.
+=> END
+
+~ level_3_start
+Steven: Eh apa itu....
+Steven: Wah akhirnya aku menemukannya, aku akan jadi orang kaya!!!
+Steven: Eh tpi ini tempatnya cukup berbahaya kaya nya aku ngg boleh nafsu aku harus berhati hati
+Steven: Aku harus tetap hati-hati dan berpikir secara logika.
+=> END
+
+~ locked_chest
+Steven: Ah terkunci rupanya...
+Steven: Kayaknya aku harus mencari kuncinya dulu nih... di mana ya....
+=> END
+
+~ ruang_kunci_start
+Steven: Ahaa bravo hari ini memang hari keberuntungan ku, aku menemukan kuncinya!
+Steven: Aku harus segera mengambil dan membuka harta karun dengan kunci itu lalu aku akan jadi orang kaya haha gasss.
+=> END
+
+~ chest_opened
+Steven: Wah gila gwa beneran kaya, ini emasnya banyak banget!
+Steven: Horeee makkk aku kayaaaa!
+=> END
