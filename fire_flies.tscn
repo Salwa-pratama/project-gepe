@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://djogg67qseh6l"]
+
+[sub_resource type="Gradient" id="Gradient_7gis2"]
+colors = PackedColorArray(0, 1, 0.15594886, 1, 0.21209751, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_os0fp"]
+gradient = SubResource("Gradient_7gis2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_20uwm"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(640, 360, 1)
+gravity = Vector3(0, 30, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 1.9999977
+scale_min = 3.0
+scale_max = 5.0
+color = Color(0.90832824, 0.9565602, 2.3102762e-06, 1)
+color_ramp = SubResource("GradientTexture1D_os0fp")
+turbulence_enabled = true
+
+[node name="Node2D" type="Node2D" unique_id=982091576]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1716403750]
+position = Vector2(595, 323)
+amount = 20
+lifetime = 30.0
+process_material = SubResource("ParticleProcessMaterial_20uwm")

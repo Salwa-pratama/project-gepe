@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bce8kncawivoj" path="res://trap.gd" id="10_trap"]
 [ext_resource type="PackedScene" uid="uid://dprib0wvxbmu4" path="res://hud_game_play.tscn" id="11_eoq84"]
 [ext_resource type="PackedScene" uid="uid://duxojec6gfsdy" path="res://obor.tscn" id="12_yl73a"]
+[ext_resource type="PackedScene" uid="uid://djogg67qseh6l" path="res://fire_flies.tscn" id="13_xbcdb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nmjpi"]
 texture = ExtResource("1_jg0dc")
@@ -730,3 +731,5 @@ environment = SubResource("Environment_eoq84")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1483843525]
 color = Color(0.30156612, 0.3525531, 0.31074777, 1)
+
+[node name="Node2D2" parent="." unique_id=982091576 instance=ExtResource("13_xbcdb")]

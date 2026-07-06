@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dprib0wvxbmu4" path="res://hud_game_play.tscn" id="8_bjebc"]
 [ext_resource type="PackedScene" uid="uid://duxojec6gfsdy" path="res://obor.tscn" id="10_gyffv"]
 [ext_resource type="Script" uid="uid://bce8kncawivoj" path="res://trap.gd" id="10_trap"]
+[ext_resource type="PackedScene" uid="uid://djogg67qseh6l" path="res://fire_flies.tscn" id="11_1pe0h"]
 
 [sub_resource type="Environment" id="Environment_5rr72"]
 background_mode = 3
@@ -20,7 +21,7 @@ glow_bloom = 1.0
 glow_hdr_luminance_cap = 167.49
 fog_light_color = Color(1, 1, 1, 1)
 adjustment_enabled = true
-adjustment_brightness = 0.61
+adjustment_brightness = 0.78
 adjustment_contrast = 1.345
 adjustment_saturation = 2.0
 
@@ -911,3 +912,6 @@ position = Vector2(1060, 368)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=442153870]
 color = Color(0.30156612, 0.3525531, 0.31074777, 1)
+
+[node name="Node2D" parent="." unique_id=982091576 instance=ExtResource("11_1pe0h")]
+position = Vector2(580, 346)
