@@ -5,6 +5,8 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		_create_splash_effect(body.global_position)
+		
 		if has_node("/root/SoundManager"):
 			SoundManager.stop_bgm()
 			SoundManager.play_kecebur_ceren()
@@ -33,9 +35,46 @@ func _on_body_entered(body: Node2D) -> void:
 				canvas.add_child(go)
 				get_tree().current_scene.add_child(canvas)
 	elif body.is_in_group("box"):
+		_create_splash_effect(body.global_position)
+		
 		if has_node("/root/SoundManager"):
 			SoundManager.play_kecebur_ceren()
 		# Biarkan kotak tidak hancur, buat pijakan karakter
+
+func _create_splash_effect(pos: Vector2) -> void:
+	var particles = GPUParticles2D.new()
+	particles.emitting = false
+	particles.amount = 40
+	particles.lifetime = 0.5
+	particles.one_shot = true
+	particles.explosiveness = 0.85
+	
+	var material = ParticleProcessMaterial.new()
+	material.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
+	material.emission_box_extents = Vector3(15, 2, 1)
+	material.direction = Vector3(0, -1, 0)
+	material.spread = 55.0
+	material.initial_velocity_min = 120.0
+	material.initial_velocity_max = 220.0
+	material.gravity = Vector3(0, 500, 0)
+	
+	# Warna hijau air racun
+	material.color = Color(0.2, 0.9, 0.3, 0.8)
+	
+	material.scale_min = 2.0
+	material.scale_max = 5.0
+	
+	particles.process_material = material
+	
+	# Posisikan efek partikelnya
+	particles.global_position = pos + Vector2(0, 10) # Agak ke bawah sedikit biar pas di air
+	
+	# Tambahkan ke scene
+	get_tree().current_scene.add_child(particles)
+	particles.emitting = true
+	
+	# Bersihkan memori otomatis
+	get_tree().create_timer(1.0).timeout.connect(particles.queue_free)
 
 func _process(_delta: float) -> void:
 	if Global.has_seen_poison_water_dialogue:

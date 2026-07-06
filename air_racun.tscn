@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cs78d2o3icq0d"]
 
-[ext_resource type="Script" path="res://air_racun.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://rqclh5bsb0rh" path="res://asset/display/latar.png" id="1_cy5cu"]
+[ext_resource type="Script" uid="uid://b4ka1rfxqdvh4" path="res://air_racun.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://btnmocnqfjv2i" path="res://asset/grapik/circle_05.png" id="3_mkfi8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cfhm"]
 atlas = ExtResource("1_cy5cu")
@@ -41,3 +42,9 @@ frame_progress = 0.85914195
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745285657]
 position = Vector2(105.5, -11.5)
 shape = SubResource("RectangleShape2D_1cfhm")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=844812764]
+position = Vector2(106, -11)
+scale = Vector2(1.4326172, 0.27539063)
+color = Color(0, 1.3758042, 0.33436075, 0.14500001)
+texture = ExtResource("3_mkfi8")

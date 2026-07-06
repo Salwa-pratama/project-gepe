@@ -205,6 +205,9 @@ texture = ExtResource("1_jg0dc")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_nmjpi")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yl73a"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n7ypv"]
 texture = ExtResource("2_xdadj")
 0:0/0 = 0
@@ -220,12 +223,16 @@ texture = ExtResource("2_xdadj")
 10:0/0 = 0
 11:0/0 = 0
 12:0/0 = 0
+12:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_yl73a")
 12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:0/0 = 0
+13:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_yl73a")
 13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:0/0 = 0
+14:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_yl73a")
 14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 15:0/0 = 0
+15:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_yl73a")
 15:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
 1:1/0 = 0
@@ -240,12 +247,16 @@ texture = ExtResource("2_xdadj")
 10:1/0 = 0
 11:1/0 = 0
 12:1/0 = 0
+12:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_yl73a")
 12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:1/0 = 0
+13:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_yl73a")
 13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:1/0 = 0
+14:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_yl73a")
 14:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 15:1/0 = 0
+15:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_yl73a")
 15:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
 1:2/0 = 0
@@ -411,6 +422,7 @@ texture = ExtResource("2_xdadj")
 12:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0s5r2"]
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_n7ypv")
 
@@ -670,6 +682,15 @@ script = ExtResource("10_trap")
 [node name="tombol" parent="." unique_id=241818438 instance=ExtResource("8_7dov7")]
 position = Vector2(588, 156)
 
+[node name="obor" parent="." unique_id=1809431092 instance=ExtResource("12_yl73a")]
+position = Vector2(922, 89)
+
+[node name="obor2" parent="." unique_id=990175488 instance=ExtResource("12_yl73a")]
+position = Vector2(847, 475)
+
+[node name="obor3" parent="." unique_id=859438967 instance=ExtResource("12_yl73a")]
+position = Vector2(291, 369)
+
 [node name="kotak1" parent="." unique_id=518614372 instance=ExtResource("5_n7ypv")]
 position = Vector2(1142, 538)
 
@@ -709,12 +730,3 @@ environment = SubResource("Environment_eoq84")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1483843525]
 color = Color(0.30156612, 0.3525531, 0.31074777, 1)
-
-[node name="obor" parent="." unique_id=1809431092 instance=ExtResource("12_yl73a")]
-position = Vector2(922, 89)
-
-[node name="obor2" parent="." unique_id=990175488 instance=ExtResource("12_yl73a")]
-position = Vector2(847, 475)
-
-[node name="obor3" parent="." unique_id=859438967 instance=ExtResource("12_yl73a")]
-position = Vector2(291, 369)

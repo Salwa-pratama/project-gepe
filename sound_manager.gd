@@ -1,5 +1,16 @@
 extends Node
 
+# ================================
+# SETTING GEMA (REVERB) UNTUK DI DALAM GOA
+# Silakan ubah angka-angka di bawah ini lewat Inspector atau langsung di sini
+# ================================
+@export_group("Pengaturan Gema Goa")
+@export var gema_room_size: float = 0.6  # 0.0 - 1.0 (seberapa besar ruangannya)
+@export var gema_damping: float = 0.5    # 0.0 - 1.0 (seberapa memantul dindingnya)
+@export var gema_wet: float = 0.2        # 0.0 - 1.0 (seberapa tebal efek gemanya)
+@export var gema_dry: float = 1.0        # 0.0 - 1.0 (seberapa terdengar suara aslinya)
+@export var gema_extra_volume_db: float = 6.0 # Penambah volume (dB) agar gema lebih keras
+
 @onready var bgm = $bgm
 @onready var sfx_buka_kunci = $sfx_buka_kunci
 @onready var sfx_buka_gerbang = $sfx_buka_gerbang
@@ -17,6 +28,9 @@ extends Node
 # Inisialisasi
 # ================================
 func _ready():
+	# Setup bus untuk efek gema (reverb) di dalam goa
+	_setup_cave_reverb()
+	
 	# Perlambat tempo (dan pitch) agar sesuai dengan animasi langkah karakter
 	if sfx_jalan:
 		sfx_jalan.pitch_scale = 0.45  # Diperlambat signifikan
@@ -26,6 +40,26 @@ func _ready():
 		sfx_mendarat.pitch_scale = 0.7
 	if bgm:
 		bgm.volume_db = -10.0 # Kecilkan volume BGM biar agak pelan
+
+func _setup_cave_reverb():
+	var bus_name = "CaveReverb"
+	if AudioServer.get_bus_index(bus_name) == -1:
+		AudioServer.add_bus(AudioServer.bus_count)
+		var bus_idx = AudioServer.bus_count - 1
+		AudioServer.set_bus_name(bus_idx, bus_name)
+		
+		var reverb = AudioEffectReverb.new()
+		reverb.room_size = gema_room_size
+		reverb.damping = gema_damping
+		reverb.spread = 1.0
+		reverb.wet = gema_wet
+		reverb.dry = gema_dry
+		
+		AudioServer.add_bus_effect(bus_idx, reverb)
+		AudioServer.set_bus_send(bus_idx, "Master")
+		
+		# Naikkan volume bus agar suaranya lebih terdengar
+		AudioServer.set_bus_volume_db(bus_idx, gema_extra_volume_db)
 
 # ================================
 # BGM (Looping)
@@ -63,12 +97,27 @@ func play_gameover():
 	if sfx_gameover:
 		sfx_gameover.play()
 
+func _update_indoor_reverb(player: AudioStreamPlayer2D):
+	if not player: return
+	var is_indoor = false
+	if get_tree().current_scene:
+		var scene_path = get_tree().current_scene.scene_file_path
+		if scene_path and scene_path.get_file().begins_with("level_"):
+			is_indoor = true
+			
+	if is_indoor:
+		player.bus = "CaveReverb"
+	else:
+		player.bus = "Master"
+
 func play_lompat():
 	if sfx_lompat:
+		_update_indoor_reverb(sfx_lompat)
 		sfx_lompat.play()
 
 func play_mendarat():
 	if sfx_mendarat:
+		_update_indoor_reverb(sfx_mendarat)
 		sfx_mendarat.play()
 		# Hentikan setelah 0.2 detik biar cuma bunyi hentakan sekali (nggak looping panjang)
 		await get_tree().create_timer(0.2).timeout
@@ -81,10 +130,12 @@ func play_click():
 
 func play_batu_hancur():
 	if sfx_batu_hancur:
+		_update_indoor_reverb(sfx_batu_hancur)
 		sfx_batu_hancur.play()
 
 func play_kecebur_ceren():
 	if sfx_kecebur_ceren:
+		_update_indoor_reverb(sfx_kecebur_ceren)
 		sfx_kecebur_ceren.play()
 
 # ================================
@@ -92,6 +143,7 @@ func play_kecebur_ceren():
 # ================================
 func play_jalan():
 	if sfx_jalan and not sfx_jalan.playing:
+		_update_indoor_reverb(sfx_jalan)
 		sfx_jalan.play()
 
 func stop_jalan():
@@ -100,6 +152,7 @@ func stop_jalan():
 
 func play_kotak_terdorong():
 	if sfx_kotak_terdorong and not sfx_kotak_terdorong.playing:
+		_update_indoor_reverb(sfx_kotak_terdorong)
 		sfx_kotak_terdorong.play()
 
 func stop_kotak_terdorong():

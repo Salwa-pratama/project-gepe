@@ -43,9 +43,10 @@ autoplay = "berkobar"
 frame_progress = 0.07730726
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1973533455]
-position = Vector2(2.0000305, -2)
-scale = Vector2(1.1064452, 1.0966796)
-color = Color(0.8356356, 0.45895782, 0, 0.693)
+position = Vector2(1, -5)
+scale = Vector2(1.5590819, 1.4545898)
+color = Color(0.8356356, 0.45895782, 0, 0.62700003)
+shadow_enabled = true
 texture = ExtResource("3_ocs7e")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=396222755]

@@ -6,6 +6,9 @@ extends Control
 
 func _ready() -> void:
 	if Global.show_level_selection:
+		var parent = get_parent()
+		if parent and parent is CanvasLayer:
+			parent.visible = false
 		self.visible = false
 		
 	# Menyambungkan sinyal klik tombol secara otomatis lewat kode (nggak perlu dicolok manual di editor)
@@ -18,16 +21,25 @@ func _ready() -> void:
 
 func _on_start_pressed() -> void:
 	if has_node("/root/SoundManager"): SoundManager.play_click()
-	self.visible = false
-	var hud_level = get_node_or_null("../CanvasLayer/hud_level_option")
-	if hud_level:
-		var canvas = get_node_or_null("../CanvasLayer")
+	
+	var hud_level = null
+	var canvas = null
+	if get_tree().current_scene:
+		canvas = get_tree().current_scene.get_node_or_null("CanvasLayer")
 		if canvas:
-			canvas.visible = true
+			hud_level = canvas.get_node_or_null("hud_level_option")
+			
+	if hud_level:
+		var parent = get_parent()
+		if parent and parent is CanvasLayer:
+			parent.visible = false
+		self.visible = false
+		canvas.visible = true
 		hud_level.visible = true
 	else:
 		hud_level = get_node_or_null("../hud_level_option")
 		if hud_level:
+			self.visible = false
 			hud_level.visible = true
 		else:
 			# Fallback

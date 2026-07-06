@@ -110,6 +110,9 @@ scale_min = 12.88
 scale_max = 13.179999
 color = Color(0.7261429, 0.5167415, 0.2840028, 1)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ndu7g"]
+polygon = PackedVector2Array(-8, -38, 1, -44, 20, -44, 30, -36, 31, -26, 29, -21, 24, -19, 26, -15, 19, -7, 22, -2, 23, 8, 24, 15, 28, 22, 28, 26, 24, 27, 26, 36, 27, 43, 32, 51, 31, 53, 14, 53, 14, 45, 12, 44, 12, 39, 14, 39, 14, 36, 11, 30, 7, 30, 5, 39, 5, 44, 3, 46, 2, 49, 5, 53, -7, 54, -11, 52, -11, 47, -8, 45, -10, 39, -8, 36, -5, 31, -9, 28, -10, 19, -13, 16, -12, 10, -11, 8, -12, 2, -5, -6, -2, -9, -12, -16, -11, -19, -11, -24, -13, -31, -11, -34)
+
 [node name="karakter" type="CharacterBody2D" unique_id=1438202888]
 script = ExtResource("13_char_gd")
 
@@ -132,3 +135,6 @@ position = Vector2(-12, 56)
 emitting = false
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_ndu7g")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1202599828]
+occluder = SubResource("OccluderPolygon2D_ndu7g")

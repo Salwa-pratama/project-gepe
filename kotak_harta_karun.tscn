@@ -43,6 +43,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6xtw"]
 size = Vector2(85.5, 94)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vqqgu"]
+polygon = PackedVector2Array(-58, -64, -62, -58, -63, 28, 22, 28, 22, -58, 17, -63)
+
 [node name="kotak_harta_karun" type="Area2D" unique_id=1233431581]
 script = ExtResource("1_script")
 
@@ -56,3 +59,6 @@ autoplay = "nutup"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=977762836]
 position = Vector2(-20.75, -16)
 shape = SubResource("RectangleShape2D_t6xtw")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1976822795]
+occluder = SubResource("OccluderPolygon2D_vqqgu")

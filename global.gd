@@ -31,6 +31,27 @@ func reset_level_data() -> void:
 	keys_updated.emit(collected_keys)
 	_update_time_display()
 
+func reset_cutscenes_for_retry(scene_name: String) -> void:
+	if scene_name == "level_1" or scene_name == "Node2D2":
+		has_seen_level_1_start = false
+		has_seen_trap_cutscene = false
+		has_seen_button_press = false
+		has_seen_button_release = false
+		has_seen_button_box = false
+		has_seen_poison_water_dialogue = false
+	elif scene_name == "level_2":
+		has_seen_level_2_start = false
+		has_seen_poison_water_dialogue = false
+	elif scene_name == "level_3":
+		has_seen_level_3_start = false
+		has_seen_poison_water_dialogue = false
+	elif scene_name == "ruang_kunci":
+		has_seen_ruang_kunci_start = false
+		has_seen_locked_chest = false
+		has_opened_chest = false
+		has_seen_poison_water_dialogue = false
+
+
 func add_key() -> void:
 	collected_keys += 1
 	keys_updated.emit(collected_keys)

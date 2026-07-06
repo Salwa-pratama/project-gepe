@@ -148,11 +148,20 @@ func _on_back_pressed() -> void:
 	if has_node("/root/SoundManager"): SoundManager.play_click()
 	Global.show_level_selection = false
 	self.visible = false
-	var main_hud = get_node_or_null("../../hud")
-	if not main_hud:
-		main_hud = get_node_or_null("../hud")
+	
+	var parent_canvas = get_parent()
+	if parent_canvas and parent_canvas is CanvasLayer:
+		parent_canvas.visible = false
 		
-	if main_hud:
-		main_hud.visible = true
-	else:
+	var found_hud = false
+	if get_tree().current_scene:
+		var hud = get_tree().current_scene.get_node_or_null("hud")
+		if hud:
+			hud.visible = true
+			var hud2 = hud.get_node_or_null("hud2")
+			if hud2:
+				hud2.visible = true
+			found_hud = true
+			
+	if not found_hud:
 		get_tree().change_scene_to_file("res://Home.tscn")

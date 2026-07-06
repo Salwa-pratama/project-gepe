@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cqmllnwwwoj8d"]
+
+[ext_resource type="FontFile" uid="uid://gs1rrt608tpj" path="res://assets/font/Adventurer.ttf" id="1_78ygf"]
+[ext_resource type="Script" path="res://hud_pause.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbtrd"]
+bg_color = Color(0, 0, 0, 0.4627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kut10"]
+content_margin_left = 44.0
+content_margin_top = 16.0
+content_margin_right = 44.0
+content_margin_bottom = 16.0
+bg_color = Color(0.23905417, 0.073123895, 0.022651186, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 61
+corner_radius_bottom_left = 61
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cie8q"]
+content_margin_left = 44.0
+content_margin_top = 16.0
+content_margin_right = 44.0
+content_margin_bottom = 16.0
+bg_color = Color(0.23921569, 0.07450981, 0.023529412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 61
+corner_radius_bottom_left = 61
+
+[node name="hud_pause" type="Control" unique_id=800793618]
+process_mode = 3
+layout_mode = 3
+script = ExtResource("1_script")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=211906535]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dbtrd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=388020796]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -84.5
+offset_right = 234.5
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="game_over" type="Label" parent="VBoxContainer" unique_id=1725380938]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_78ygf")
+theme_override_font_sizes/font_size = 114
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1488105366]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="resume" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1120545379]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_78ygf")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_kut10")
+text = "Resume"
+
+[node name="try_again" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1750118466]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_78ygf")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_cie8q")
+text = "Try-again"
+
+[node name="back" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1937021839]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_78ygf")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_cie8q")
+text = "Back"
