@@ -269,16 +269,16 @@ func _update_audio() -> void:
 	# Kalau sedang di udara, atau tidak bergerak horizontal, atau dalam cutscene berdiam diri
 	if not is_on_floor() or abs(velocity.x) < 1.0 or (in_cutscene and cutscene_dir == 0.0):
 		SoundManager.stop_jalan()
-		SoundManager.stop_kotak_terdorong()
+		SoundManager.stop_dorong_dan_narik()
 		return
 
 	# Mainkan audio berdasarkan animasi saat ini
 	if animated_sprite.animation == "jalan":
 		SoundManager.play_jalan()
-		SoundManager.stop_kotak_terdorong()
+		SoundManager.stop_dorong_dan_narik()
 	elif animated_sprite.animation == "dorong" or animated_sprite.animation == "narik":
-		SoundManager.play_kotak_terdorong()
+		SoundManager.play_dorong_dan_narik()
 		SoundManager.stop_jalan()
 	else:
 		SoundManager.stop_jalan()
-		SoundManager.stop_kotak_terdorong()
+		SoundManager.stop_dorong_dan_narik()

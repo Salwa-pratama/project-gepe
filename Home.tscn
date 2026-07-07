@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://o0sso80jdu5k" path="res://asset/map/bgparalax.png" id="1_55kc7"]
 [ext_resource type="Texture2D" uid="uid://rqclh5bsb0rh" path="res://asset/display/latar.png" id="2_hf3nf"]
 [ext_resource type="Texture2D" uid="uid://ol45xf30phqi" path="res://asset/map/tilemap.png" id="5_55kc7"]
-[ext_resource type="Texture2D" uid="uid://cgxha1tgtwk81" path="res://assets/map/pamflet-removebg-preview.png" id="6_f516x"]
 [ext_resource type="Texture2D" uid="uid://c6qksbphsh0tn" path="res://assets/map/latar2.png" id="6_ydlth"]
 [ext_resource type="PackedScene" uid="uid://dtjxebt1koo2f" path="res://pohon.tscn" id="7_34ysk"]
+[ext_resource type="Texture2D" uid="uid://cf8kiwer8stxm" path="res://assets/dekor1.png" id="7_l6nbk"]
 [ext_resource type="PackedScene" uid="uid://d2m53fxqaytrd" path="res://char.tscn" id="8_34ysk"]
 [ext_resource type="PackedScene" uid="uid://07vid8qggvd2" path="res://pohon_kecil.tscn" id="8_ahk5f"]
 [ext_resource type="PackedScene" uid="uid://dtico6i3okntk" path="res://hud.tscn" id="9_ahk5f"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cvfkumtub4ak6" path="res://hud_level_option.tscn" id="10_bspk3"]
 [ext_resource type="PackedScene" uid="uid://ccoifcpd8uvgt" path="res://wind.tscn" id="11_l6nbk"]
 [ext_resource type="Texture2D" uid="uid://dgkdw21tmxjvp" path="res://asset/display/dekor.png" id="13_62i41"]
+[ext_resource type="PackedScene" uid="uid://whjvaqrb3ceh" path="res://matahari.tscn" id="15_80q0k"]
+[ext_resource type="PackedScene" uid="uid://4m3m6regck66" path="res://awan_kinton.tscn" id="16_qqbku"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_62i41"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -6579,6 +6581,10 @@ texture = ExtResource("6_ydlth")
 [sub_resource type="TileSet" id="TileSet_l6nbk"]
 sources/0 = SubResource("TileSetAtlasSource_62i41")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_80q0k"]
+atlas = ExtResource("7_l6nbk")
+region = Rect2(127.75621, 0.75991535, 63.441086, 63.70236)
+
 [sub_resource type="Sky" id="Sky_62i41"]
 
 [sub_resource type="Environment" id="Environment_62i41"]
@@ -6883,9 +6889,9 @@ tile_map_data = PackedByteArray("AAAcACEAAAAJAAAAAAAdACEAAAAJAAAAAAAeACEAAAAJAAA
 tile_set = SubResource("TileSet_l6nbk")
 
 [node name="PamfletRemovebgPreview" type="Sprite2D" parent="." unique_id=709197383]
-position = Vector2(874, 505.99997)
-scale = Vector2(0.18722306, 0.18766941)
-texture = ExtResource("6_f516x")
+position = Vector2(900.00006, 511)
+scale = Vector2(1.0078712, 1.0889184)
+texture = SubResource("AtlasTexture_80q0k")
 
 [node name="Node2D" parent="." unique_id=1438202888 instance=ExtResource("8_34ysk")]
 position = Vector2(76, 477)
@@ -6906,7 +6912,8 @@ position = Vector2(760, 579)
 environment = SubResource("Environment_62i41")
 
 [node name="PointLight2D" type="PointLight2D" parent="WorldEnvironment" unique_id=2131315376]
-position = Vector2(544, 20)
+visible = false
+position = Vector2(531, -10)
 color = Color(0.80811447, 0.7978405, 7.70092e-07, 0.6627451)
 range_z_min = -1022
 shadow_enabled = true
@@ -6915,6 +6922,9 @@ texture_scale = 6.49
 
 [node name="Node2D8" parent="WorldEnvironment" unique_id=165153789 instance=ExtResource("11_l6nbk")]
 position = Vector2(0, 4)
+
+[node name="Node2D9" parent="WorldEnvironment" unique_id=175370252 instance=ExtResource("15_80q0k")]
+position = Vector2(357, 67)
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=119360431]
 
@@ -6933,3 +6943,12 @@ visible = false
 [node name="TileMapLayer4" type="TileMapLayer" parent="." unique_id=1170571106]
 tile_map_data = PackedByteArray("AAA4ACMAAAAIAAUAAAA4ACQAAAAIAAYAAAA4ACUAAAAIAAcAAAA5ACMAAAAJAAUAAAA5ACQAAAAJAAYAAAA5ACUAAAAJAAcAAAA6ACMAAAAKAAUAAAA6ACQAAAAKAAYAAAA6ACUAAAAKAAcAAAA7ACMAAAALAAUAAAA7ACQAAAALAAYAAAA7ACUAAAALAAcAAAA8ABgAAAABAAAAAAA8ABkAAAABAAEAAAA8ABoAAAABAAIAAAA8ABsAAAABAAMAAAA9ABgAAAACAAAAAAA9ABkAAAACAAEAAAA9ABoAAAACAAIAAAA9ABsAAAACAAMAAAA+ABgAAAADAAAAAAA+ABkAAAADAAEAAAA+ABoAAAADAAIAAAA+ABsAAAADAAMAAABFABkAAAABAAAAAFBFABoAAAACAAAAAFBFABsAAAADAAAAAFBEABkAAAABAAEAAFBEABoAAAACAAEAAFBEABsAAAADAAEAAFBDABkAAAABAAIAAFBDABoAAAACAAIAAFBDABsAAAADAAIAAFBCABkAAAABAAMAAFBCABoAAAACAAMAAFBCABsAAAADAAMAAFA=")
 tile_set = SubResource("TileSet_80q0k")
+
+[node name="awan_kinton" parent="." unique_id=1621911424 instance=ExtResource("16_qqbku")]
+position = Vector2(807, 86)
+
+[node name="awan_kinton2" parent="." unique_id=1041669768 instance=ExtResource("16_qqbku")]
+position = Vector2(501, 71)
+
+[node name="awan_kinton3" parent="." unique_id=2086429877 instance=ExtResource("16_qqbku")]
+position = Vector2(166, 74)

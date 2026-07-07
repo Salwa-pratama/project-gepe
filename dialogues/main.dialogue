@@ -1,74 +1,109 @@
-
 ~ level_1_intro
-Sigit_XAU: huh pie ya..[#voice=res://asset/Dub/1.mp3 volume=100]
-Sigit_XAU: urip og mek ngene-ngene tok...
-Sigit_XAU: piye ya rasane financial freedom...
-Sigit_XAU: gak mikir utang, cicilan, isine mek dolan tok...
-Sigit_XAU: ehh opo kae!!!
+# 1
+Sigit_XAU: [do Global.play_dub(1)] huh pie ya.. 
+# 2
+Sigit_XAU: [do Global.play_dub(2)] urip og mek ngene-ngene tok...
+# 3
+Sigit_XAU: [do Global.play_dub(3)] piye ya rasane financial freedom...
+# 4
+Sigit_XAU: [do Global.play_dub(4)] gak mikir utang, cicilan, isine mek dolan tok...
+# 5
+Sigit_XAU: [do Global.play_dub(5)] ehh opo kae!!!
 => END
 
 ~ level_1_pamflet
-Sigit_XAU: Opo kih, njajal tak wocone sek...
-Sigit_XAU: Nek njero enek harta karun karo emaas? wah masuk ki sopo ngerti aku dadi wong sugeh.
-Sigit_XAU: Sek - sek opo kih, " seng melbu guo gak iso metu "
-Sigit_XAU: Nyapo ae nek njero gak metu-metu i?...
-Sigit_XAU: Peduli apa! pengen sugeh yo kudu enek resikone.
+# 6
+Sigit_XAU: [do Global.play_dub(6)] Opo kih, njajal tak wocone sek...
+# 7
+Sigit_XAU: [do Global.play_dub(7)] Nek njero enek harta karun karo emaas? wah masuk ki sopo ngerti aku dadi wong sugeh.
+# 8
+Sigit_XAU: [do Global.play_dub(8)] Sek - sek opo kih, " seng melbu guo gak iso metu "
+# 9
+Sigit_XAU: [do Global.play_dub(9)] Nyapo ae nek njero gak metu-metu i?...
+# 10 
+Sigit_XAU: [do Global.play_dub(10)] Peduli apa! pengen sugeh yo kudu enek resikone.
 => END
 
 ~ level_1_start
-Sigit_XAU: allohumma peteng e...
-Sigit_XAU: Isine kok kotak-kotak tok, aku kon nyapo ki...
-Sigit_XAU: Njajal tak ndelok-ndelok sek.
+# 11
+Sigit_XAU: [do Global.play_dub(11)] allohumma peteng e...
+# 12
+Sigit_XAU: [do Global.play_dub(12)] Isine kok kotak-kotak tok, aku kon nyapo ki...
+# 13
+Sigit_XAU: [do Global.play_dub(13)] Njajal tak ndelok-ndelok sek.
 => END
 
 ~ level_1_trap
-Sigit_XAU: anjir lemah e ambayar! aku kudu ati - ati kih.
-Sigit_XAU: Untung ae aku gak mati, alhamdulilah.
+# 14
+Sigit_XAU: [do Global.play_dub(14)] Anjir.... 
+# 15
+Sigit_XAU: [do Global.play_dub(15)] Untung ae aku gak mati, alhamdulilah.
 => END
 
 ~ level_1_button_press
-Sigit_XAU: Eeh opo kihh
-Sigit_XAU: Ooh tombol gawe mbukak lawang.
+# 16
+Sigit_XAU: [do Global.play_dub(16)] Eeh opo kihh
+# 17
+Sigit_XAU: [do Global.play_dub(17)] Ooh tombol gawe mbukak lawang.
 => END
 
 ~ level_1_button_release
-Sigit_XAU: Loh kok nutup eneh pas tombol e gak di pencet.
-Sigit_XAU: Koyok e aku kudu ndeleh kotak ikideh nde nduwur tombol, ben lawange mbukak teros.
-Sigit_XAU: Njajal sek ah.
+# 18
+Sigit_XAU: [do Global.play_dub(18)] Loh kok nutup eneh pas tombol e gak di pencet.
+# 19
+Sigit_XAU: [do Global.play_dub(19)] Koyok e aku kudu ndeleh kotak ikideh nde nduwur tombol, ben lawange mbukak teros.
+# 20
+Sigit_XAU: [do Global.play_dub(20)] Njajal sek ah.
 => END
 
 ~ level_1_button_box
-Sigit_XAU: hahah Bak,e aku pinter ya.. 
-Sigit_XAU: Gas langsung masuk, penasaran nek njero enek opo ae.
+# 21
+Sigit_XAU: [do Global.play_dub(21)] hahah Bak,e aku pinter ya.. 
+# 22
+Sigit_XAU: [do Global.play_dub(22)] Gas langsung masuk, penasaran nek njero enek opo ae.
 => END
 
 ~ level_2_start
-Sigit_XAU: Nggon opo eneh kih !..
-Sigit_XAU: Koyok e nek kene luih bahaya, kudu luih ati - ati deh.
+# 23
+Sigit_XAU: [do Global.play_dub(23)] Nggon opo eneh kih !..
+# 24
+Sigit_XAU: [do Global.play_dub(24)] Koyok e nek kene luih bahaya, kudu luih ati - ati deh.
 => END
 ~ poison_water
-Sigit_XAU: Hmm banyu opo kih..
-Sigit_XAU: Kudu ati-ati gak oleh ceblok ben gak mati konyol.
-Sigit_XAU: Nek mati nek kene gak sido dadi wong sugeh aku.
+# 25
+Sigit_XAU: [do Global.play_dub(25)] Hmm banyu opo kih..
+# 26
+Sigit_XAU: [do Global.play_dub(26)] Kudu ati-ati gak oleh ceblok ben gak mati konyol.
+# 27
+Sigit_XAU: [do Global.play_dub(27)] Nek mati nek kene gak sido dadi wong sugeh aku.
 => END
 
 ~ level_3_start
-Sigit_XAU: Eh opo kae..
-Sigit_XAU: hahah akhire aku dadi wong sugeeh!!!
-Sigit_XAU: Tetep kudu waspada karo Berfikir secara logika ben gak sia-sia.
+# 28
+Sigit_XAU: [do Global.play_dub(28)] Eh opo kae..
+# 29
+Sigit_XAU: [do Global.play_dub(29)] hahah akhire aku dadi wong sugeeh!!!
+# 30
+Sigit_XAU: [do Global.play_dub(30)] Tetep kudu waspada karo Berfikir secara logika ben gak sia-sia.
 => END
 
 ~ locked_chest
-Sigit_XAU: Anjiir di gembok!..
-Sigit_XAU: Kuncine ndek ndi ya?...
+# 31
+Sigit_XAU: [do Global.play_dub(31)] Anjiir di gembok!..
+# 32
+Sigit_XAU: [do Global.play_dub(32)] Kuncine ndek ndi ya?...
 => END
 
 ~ ruang_kunci_start
-Sigit_XAU: Ahaa aku nemu kuncineeee!..
-Sigit_XAU: Tak jumuk e, terus mbukak hartakarun terus dadi wong sugeeh, mugo-mugo isine emas sak tonnn hahahaha...
+# 33
+Sigit_XAU: [do Global.play_dub(33)] Ahaa aku nemu kuncineeee!..
+# 34
+Sigit_XAU: [do Global.play_dub(34)] Tak jumuk e, terus mbukak hartakarun terus dadi wong sugeeh, mugo-mugo isine emas sak tonnn hahahaha...
 => END
 
 ~ chest_opened
-Sigit_XAU: Wah gilak aku sugeeeh, isine emass hahahah.
-Sigit_XAU: Horeee makkk aku sugeeeh...
+# 35
+Sigit_XAU: [do Global.play_dub(35)] Wah gilak aku sugeeeh, isine emass hahahah.
+# 36
+Sigit_XAU: [do Global.play_dub(36)] Horeee makkk aku sugeeeh...
 => END

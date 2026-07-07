@@ -1,31 +1,79 @@
 [gd_scene format=3 uid="uid://d2m53fxqaytrd"]
 
-[ext_resource type="Texture2D" uid="uid://cyqhoo0tbkfnu" path="res://asset/character/doerong2.png" id="1_34oqc"]
-[ext_resource type="Texture2D" uid="uid://e4jnv3pr6tm0" path="res://asset/character/dorong1.png" id="2_o5gar"]
-[ext_resource type="Texture2D" uid="uid://b6jxjs0qarsyx" path="res://asset/character/dorong3.png" id="3_ndu7g"]
-[ext_resource type="Texture2D" uid="uid://dxy8ac2xmimx0" path="res://asset/character/jalan1.png" id="5_cfrs6"]
-[ext_resource type="Texture2D" uid="uid://b3eytrofc7i8j" path="res://asset/character/idle1.png" id="5_ndu7g"]
-[ext_resource type="Texture2D" uid="uid://dav0705c3wefh" path="res://asset/character/idle2.png" id="6_74f7h"]
-[ext_resource type="Texture2D" uid="uid://dq7c6jewm2wm5" path="res://asset/character/jalan2.png" id="6_x7jrk"]
-[ext_resource type="Texture2D" uid="uid://bfb27vmku16l8" path="res://asset/character/jalan3.png" id="7_lbgpb"]
-[ext_resource type="Texture2D" uid="uid://cr8q6iprfir7u" path="res://asset/character/lompat1.png" id="8_5xjyk"]
-[ext_resource type="Texture2D" uid="uid://bhgcch31vkdx5" path="res://asset/character/Lompat2.png" id="9_3m3tx"]
-[ext_resource type="Texture2D" uid="uid://clilv216jvsla" path="res://asset/character/tarik1.png" id="10_376lq"]
-[ext_resource type="Texture2D" uid="uid://da3bfg8phqu5a" path="res://asset/character/tarik2.png" id="11_b8cv4"]
-[ext_resource type="Texture2D" uid="uid://cpr856860c74c" path="res://asset/character/tarik3.png" id="12_tnf04"]
+[ext_resource type="Texture2D" uid="uid://bxuv82hva83e4" path="res://assets/map/bawah_tanah.png" id="2_hs5vj"]
+[ext_resource type="Texture2D" uid="uid://cctmjhndyipsa" path="res://assets/asset (2).png" id="3_3bvsw"]
 [ext_resource type="Script" uid="uid://nsaitkl5jm2k" path="res://char.gd" id="13_char_gd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bvsw"]
+atlas = ExtResource("3_3bvsw")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncbi3"]
+atlas = ExtResource("3_3bvsw")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4phwq"]
+atlas = ExtResource("2_hs5vj")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxri4"]
+atlas = ExtResource("2_hs5vj")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5duy"]
+atlas = ExtResource("2_hs5vj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq1vm"]
+atlas = ExtResource("2_hs5vj")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri1o5"]
+atlas = ExtResource("2_hs5vj")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yumlf"]
+atlas = ExtResource("2_hs5vj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nthtt"]
+atlas = ExtResource("2_hs5vj")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34oqc"]
+atlas = ExtResource("2_hs5vj")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5gar"]
+atlas = ExtResource("2_hs5vj")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndu7g"]
+atlas = ExtResource("2_hs5vj")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74f7h"]
+atlas = ExtResource("3_3bvsw")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfrs6"]
+atlas = ExtResource("3_3bvsw")
+region = Rect2(128, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhphn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_34oqc")
+"texture": SubResource("AtlasTexture_3bvsw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_o5gar")
+"texture": SubResource("AtlasTexture_ncbi3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_ndu7g")
+"texture": SubResource("AtlasTexture_4phwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxri4")
 }],
 "loop": true,
 "name": &"dorong",
@@ -33,10 +81,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_ndu7g")
+"texture": SubResource("AtlasTexture_b5duy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_74f7h")
+"texture": SubResource("AtlasTexture_dq1vm")
 }],
 "loop": true,
 "name": &"idle",
@@ -44,13 +92,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_cfrs6")
+"texture": SubResource("AtlasTexture_ri1o5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_x7jrk")
+"texture": SubResource("AtlasTexture_yumlf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_lbgpb")
+"texture": SubResource("AtlasTexture_nthtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34oqc")
 }],
 "loop": true,
 "name": &"jalan",
@@ -58,10 +109,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_5xjyk")
+"texture": SubResource("AtlasTexture_o5gar")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_3m3tx")
+"texture": SubResource("AtlasTexture_ndu7g")
 }],
 "loop": true,
 "name": &"lompat",
@@ -74,21 +125,30 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_376lq")
+"texture": SubResource("AtlasTexture_qxri4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_b8cv4")
+"texture": SubResource("AtlasTexture_74f7h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_tnf04")
+"texture": SubResource("AtlasTexture_4phwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfrs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bvsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncbi3")
 }],
 "loop": true,
 "name": &"narik",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndu7g"]
-size = Vector2(47, 100)
+size = Vector2(46.927464, 95.12943)
 
 [sub_resource type="Animation" id="Animation_ndu7g"]
 resource_name = "dorong"
@@ -110,21 +170,23 @@ scale_min = 12.88
 scale_max = 13.179999
 color = Color(0.7261429, 0.5167415, 0.2840028, 1)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ndu7g"]
-polygon = PackedVector2Array(-8, -38, 1, -44, 20, -44, 30, -36, 31, -26, 29, -21, 24, -19, 26, -15, 19, -7, 22, -2, 23, 8, 24, 15, 28, 22, 28, 26, 24, 27, 26, 36, 27, 43, 32, 51, 31, 53, 14, 53, 14, 45, 12, 44, 12, 39, 14, 39, 14, 36, 11, 30, 7, 30, 5, 39, 5, 44, 3, 46, 2, 49, 5, 53, -7, 54, -11, 52, -11, 47, -8, 45, -10, 39, -8, 36, -5, 31, -9, 28, -10, 19, -13, 16, -12, 10, -11, 8, -12, 2, -5, -6, -2, -9, -12, -16, -11, -19, -11, -24, -13, -31, -11, -34)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hs5vj"]
+polygon = PackedVector2Array(28, -23, 28, -20, 30, -18, 30, -15, 28, -13, 26, -13, 26, -10, 23, -10, 23, -7, 24, -5, 24, 9, 23, 11, 23, 17, 24, 19, 24, 22, 23, 22, 22, 24, 22, 26, 19, 31, 17, 31, 17, 41, 17, 44, 21, 44, 21, 48, 24, 48, 25, 49, 25, 50, 22, 51, 7, 51, 7, 31, 4, 31, 4, 25, 3, 24, 0, 24, -1, 20, -1, -2, 0, -5, 2, -5, 2, -7, 4, -8, 4, -10, 4, -12, 4, -14, 0, -14, 0, -15, 0, -16, -4, -17, -4, -19, -7, -19, -7, -23, -9, -24, -9, -28, -7, -29, -7, -33, -4, -33, -4, -35, -2, -35, -2, -37, 2, -37, 2, -39, 19, -39, 19, -37, 23, -37, 23, -35, 27, -35, 27, -33, 30, -33, 30, -31, 32, -31, 32, -28, 30, -27, 29, -25, 28, -25)
 
 [node name="karakter" type="CharacterBody2D" unique_id=1438202888]
+scale = Vector2(0.92906713, 0.8176161)
 script = ExtResource("13_char_gd")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2123752292]
-position = Vector2(7.0000005, 7)
-scale = Vector2(0.8789062, 0.8515625)
+position = Vector2(25.999996, 14)
+scale = Vector2(2.1818845, 2.1528323)
 sprite_frames = SubResource("SpriteFrames_mhphn")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=-1171215004]
-position = Vector2(9.5, 5)
+position = Vector2(11.9637375, 5.6259356)
 shape = SubResource("RectangleShape2D_ndu7g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=60824399]
@@ -136,5 +198,5 @@ emitting = false
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_ndu7g")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1202599828]
-occluder = SubResource("OccluderPolygon2D_ndu7g")
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1351254472]
+occluder = SubResource("OccluderPolygon2D_hs5vj")

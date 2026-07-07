@@ -7,11 +7,12 @@
 [ext_resource type="AudioStream" uid="uid://kjys3fyq1kfm" path="res://asset/sound/gameover.wav" id="4_m3oho"]
 [ext_resource type="AudioStream" uid="uid://cpobvhmm2u37c" path="res://asset/sound/jalan.wav" id="5_rt03n"]
 [ext_resource type="AudioStream" uid="uid://boqpru2m2hkjj" path="res://asset/sound/tarikdorong.ogg" id="6_vgaxf"]
-[ext_resource type="AudioStream" uid="uid://b6t5vv16jalg5" path="res://asset/sound/lompat.wav" id="7_lompat"]
+[ext_resource type="AudioStream" uid="uid://bgstkot3kpawf" path="res://asset/sound/lompat.mp3" id="8_xrcvc"]
 [ext_resource type="AudioStream" uid="uid://bsfncd7qd1tqo" path="res://asset/sound/click.wav" id="9_m3oho"]
 [ext_resource type="AudioStream" uid="uid://dc0nw1l51ha0q" path="res://asset/sound/bgm_luar.ogg" id="10_vgaxf"]
 [ext_resource type="AudioStream" uid="uid://nbbur55b6wng" path="res://asset/sound/batu_hancur.wav" id="11_xrcvc"]
 [ext_resource type="AudioStream" uid="uid://buxjbs078il70" path="res://asset/sound/kecebur_ceren.wav" id="12_xrcvc"]
+[ext_resource type="AudioStream" uid="uid://dkiymi32jof3t" path="res://asset/sound/dorong_dan_narik.mp3" id="13_70tky"]
 
 [node name="sound_manager" type="Node2D" unique_id=1947978727]
 script = ExtResource("1_script")
@@ -35,7 +36,7 @@ stream = ExtResource("5_rt03n")
 stream = ExtResource("6_vgaxf")
 
 [node name="sfx_lompat" type="AudioStreamPlayer2D" parent="." unique_id=1234567890]
-stream = ExtResource("7_lompat")
+stream = ExtResource("8_xrcvc")
 
 [node name="sfx_mendarat" type="AudioStreamPlayer2D" parent="." unique_id=1286608618]
 stream = ExtResource("5_rt03n")
@@ -51,3 +52,6 @@ stream = ExtResource("11_xrcvc")
 
 [node name="sfx_kecebur_ceren" type="AudioStreamPlayer2D" parent="." unique_id=1787743586]
 stream = ExtResource("12_xrcvc")
+
+[node name="sfx_dorong_dan_narik" type="AudioStreamPlayer2D" parent="." unique_id=1358820400]
+stream = ExtResource("13_70tky")

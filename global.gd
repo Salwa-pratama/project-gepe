@@ -69,3 +69,38 @@ func _update_time_display() -> void:
 	var seconds = int(level_time) % 60
 	var time_str = "%02d:%02d" % [minutes, seconds]
 	time_updated.emit(time_str)
+
+var dub_player: AudioStreamPlayer
+var dub_volume: float = 3.0 # Volume linear: 0.0 sampai 1.0+ (3.0 supaya kencang)
+
+func _ready() -> void:
+	dub_player = AudioStreamPlayer.new()
+	# Secara default main di bus Master, bisa diubah jika ada bus khusus dialog
+	dub_player.bus = "Master"
+	dub_player.process_mode = Node.PROCESS_MODE_ALWAYS # <--- Penting agar tetap bunyi saat game pause
+	add_child(dub_player)
+
+func play_dub(index: int) -> void:
+	var path = "res://asset/dub/%s.mp3" % str(index)
+	var stream = load(path)
+	
+	var log_f = FileAccess.open("res://dub_log.txt", FileAccess.WRITE)
+	if log_f:
+		log_f.store_string("TRYING TO PLAY: " + path + " | STREAM: " + str(stream))
+		log_f.close()
+		
+	if stream:
+		dub_player.stream = stream
+		dub_player.volume_db = linear_to_db(dub_volume)
+		
+		# Memotong 1.17 detik awal khusus untuk dubbing 14
+		if index == 14:
+			dub_player.play(1.17)
+		else:
+			dub_player.play()
+	else:
+		print("File dub tidak ditemukan atau gagal diload: ", path)
+
+func stop_dub() -> void:
+	if dub_player and dub_player.playing:
+		dub_player.stop()

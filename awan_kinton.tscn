@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://4m3m6regck66"]
+
+[ext_resource type="Texture2D" uid="uid://cf8kiwer8stxm" path="res://assets/dekor1.png" id="1_jb74x"]
+[ext_resource type="Texture2D" uid="uid://dgkdw21tmxjvp" path="res://asset/display/dekor.png" id="2_nic4v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb74x"]
+atlas = ExtResource("1_jb74x")
+region = Rect2(69, 4, 54, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nic4v"]
+atlas = ExtResource("2_nic4v")
+region = Rect2(65, 2, 58, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_om8gr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb74x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nic4v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="awan_kinton" type="Node2D" unique_id=1621911424]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1069941893]
+position = Vector2(-7, -7.000001)
+scale = Vector2(3.4960935, 2.8398435)
+sprite_frames = SubResource("SpriteFrames_om8gr")
+autoplay = "default"
+frame_progress = 0.9332083

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bieqncj2wnunv"]
 
 [ext_resource type="Script" uid="uid://ci8py1184lksw" path="res://dialogue_ballons/balloon.gd" id="1_36de5"]
+[ext_resource type="Texture2D" uid="uid://bxuv82hva83e4" path="res://assets/map/bawah_tanah.png" id="2_4b424"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
-[ext_resource type="Texture2D" uid="uid://b3eytrofc7i8j" path="res://asset/character/idle1.png" id="2_g763t"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="AudioStream" uid="uid://co3i0ndftvhdk" path="res://asset/sound/text_scroll.wav" id="5_4b424"]
 
@@ -64,6 +64,10 @@ MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8ugb"]
+atlas = ExtResource("2_4b424")
+region = Rect2(0, 0, 49, 56.5)
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
@@ -142,7 +146,7 @@ theme_override_constants/separation = 11
 [node name="TextureRect" type="TextureRect" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1658308640]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-texture = ExtResource("2_g763t")
+texture = SubResource("AtlasTexture_e8ugb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1624289611]
 layout_mode = 2

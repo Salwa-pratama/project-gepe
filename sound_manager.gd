@@ -23,6 +23,7 @@ extends Node
 @onready var bgm_luar = $bgm_luar
 @onready var sfx_batu_hancur = $sfx_batu_hancur
 @onready var sfx_kecebur_ceren = $sfx_kecebur_ceren
+@onready var sfx_dorong_dan_narik = $sfx_dorong_dan_narik
 
 # ================================
 # Inisialisasi
@@ -158,3 +159,12 @@ func play_kotak_terdorong():
 func stop_kotak_terdorong():
 	if sfx_kotak_terdorong:
 		sfx_kotak_terdorong.stop()
+
+func play_dorong_dan_narik():
+	if sfx_dorong_dan_narik and not sfx_dorong_dan_narik.playing:
+		_update_indoor_reverb(sfx_dorong_dan_narik)
+		sfx_dorong_dan_narik.play()
+
+func stop_dorong_dan_narik():
+	if sfx_dorong_dan_narik:
+		sfx_dorong_dan_narik.stop()

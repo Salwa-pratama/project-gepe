@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://whjvaqrb3ceh"]
+
+[ext_resource type="Texture2D" uid="uid://cf8kiwer8stxm" path="res://assets/dekor1.png" id="1_tconw"]
+[ext_resource type="Texture2D" uid="uid://btnmocnqfjv2i" path="res://asset/grapik/circle_05.png" id="2_kqwwr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqwwr"]
+atlas = ExtResource("1_tconw")
+region = Rect2(0.6521988, 0.94819164, 62.05074, 63.854786)
+
+[node name="Node2D" type="Node2D" unique_id=175370252]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=585703554]
+texture_filter = 1
+color = Color(0.80480283, 0.79298174, 0, 0.96400005)
+range_z_min = -1022
+shadow_enabled = true
+texture = ExtResource("2_kqwwr")
+texture_scale = 6.49
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=556126815]
+position = Vector2(-1.5258789e-05, -1.1444092e-05)
+scale = Vector2(1.5806452, 1.5634921)
+texture = SubResource("AtlasTexture_kqwwr")
