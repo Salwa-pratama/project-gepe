@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://kahceg4j5pyc"]
+
+[ext_resource type="Script" uid="uid://blqr4uklfcrcd" path="res://hud_setting.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://gs1rrt608tpj" path="res://assets/font/Adventurer.ttf" id="1_w51dr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvhp0"]
+content_margin_left = 44.0
+content_margin_top = 16.0
+content_margin_right = 44.0
+content_margin_bottom = 16.0
+bg_color = Color(0.23921569, 0.07450981, 0.023529412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 61
+corner_radius_bottom_left = 61
+
+[node name="hud_setting" type="Control" unique_id=1486171365]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="bg" type="Panel" parent="." unique_id=1259231165]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="container_setting" type="HBoxContainer" parent="." unique_id=1912389146]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = -81.5
+offset_right = 348.0
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="label_volume" type="Label" parent="container_setting" unique_id=1948287234]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w51dr")
+theme_override_font_sizes/font_size = 34
+text = "Volume  :"
+
+[node name="slider_volume" type="HSlider" parent="container_setting" unique_id=1827550773]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 90.0
+
+[node name="label_value" type="Label" parent="container_setting" unique_id=1367003370]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w51dr")
+theme_override_font_sizes/font_size = 34
+text = "100"
+
+[node name="back" type="Button" parent="." unique_id=600419872]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 54.0
+offset_right = 180.0
+offset_bottom = 110.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_w51dr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvhp0")
+text = "Back"

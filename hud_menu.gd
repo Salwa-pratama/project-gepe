@@ -1,5 +1,8 @@
 extends Control
 
+var hud_setting_scene = preload("res://hud_setting.tscn")
+var hud_setting_instance = null
+
 @onready var start_btn = $VBoxContainer/start
 @onready var option_btn = $VBoxContainer/option
 @onready var exit_btn = $VBoxContainer/exit
@@ -47,8 +50,17 @@ func _on_start_pressed() -> void:
 
 func _on_option_pressed() -> void:
 	if has_node("/root/SoundManager"): SoundManager.play_click()
-	# Bebas mau diisi apa nanti, sekarang kita print aja dulu
-	print("Tombol Option ditekan!")
+	
+	if hud_setting_instance == null:
+		hud_setting_instance = hud_setting_scene.instantiate()
+		var parent = get_parent()
+		if parent:
+			parent.add_child(hud_setting_instance)
+		else:
+			add_child(hud_setting_instance)
+			
+	hud_setting_instance.visible = true
+	self.visible = false
 
 func _on_exit_pressed() -> void:
 	if has_node("/root/SoundManager"): SoundManager.play_click()
